@@ -1,0 +1,150 @@
+body {font-family: poppins, sans-serif;}
+
+
+
+h1, h2, h3, h4, h5, h6 {font-family: poppins, sans-serif; color: #15404e;}
+
+p {font-family: poppins, sans-serif;}
+
+    .slide {
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+    .slide.active {
+      opacity: 1;
+    }
+
+    .alink {
+      color: #15404E;
+    }
+
+    .hcolor {
+      color: #15404E;
+    }
+
+/* === Color Palette === */
+
+/* === Color Palette === */
+
+/* Primary Colors */
+.spruce { color: #15404E; }
+.bg-spruce { background-color: #15404E; }
+.border-spruce { border-color: #15404E; }
+
+.cshadow { color: #7896AE; }
+.bg-cshadow { background-color: #7896AE; }
+.border-cshadow { border-color: #7896AE; }
+
+.mist { color: #DDEAF4; }
+.bg-mist { background-color: #DDEAF4; }
+.border-mist { border-color: #DDEAF4; }
+
+.mint { color: #E4EEEC; }
+.bg-mint { background-color: #E4EEEC; }
+.border-mint { border-color: #E4EEEC; }
+
+.plum { color: #850A56; }
+.bg-plum { background-color: #850A56; }
+.border-plum { border-color: #850A56; }
+
+/* Neutral Colors */
+.black-90 { color: #343434; }
+.bg-black-90 { background-color: #343434; }
+.border-black-90 { border-color: #343434; }
+
+.onyx { color: #707070; }
+.bg-onyx { background-color: #707070; }   
+.border-onyx { border-color: #707070;}    
+
+.warm-grey { color: #ECEAE6; }
+.bg-warm-grey { background-color: #ECEAE6; }
+.border-warm-grey { border-color: #ECEAE6; }
+
+.pearl { color: #FAF8F6; }
+.bg-pearl { background-color: #FAF8F6; }
+.border-pearl { border-color: #FAF8F6; }
+
+ 
+.bg-plum-light { background-color: #862461;  }
+.border-plum-light { border-color: #862461;  }
+ 
+
+ 
+      /* Define the utility classes for the smooth transition effect */
+      .smooth-hide {
+        max-height: 0;
+        opacity: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: hidden;
+      }
+      .smooth-show {
+        /* Increased max-height slightly to ensure it contains content before scroll takes over */
+        max-height: 600px;
+        opacity: 1;
+      }
+      /* Base arrow style (downward by default) */
+      .arrow {
+        transition-property: transform;
+        transition-duration: 300ms;
+        transition-timing-function: ease-in-out;
+      }
+      /* Rotated state (upward) */
+      .rotated {
+        transform: rotate(180deg);
+      }
+      /* Active Class for Navigation Links */
+      .nav-active {
+        color: #4f46e5; /* Tailwind indigo-600 */
+        font-weight: 600; /* Tailwind font-semibold */
+      }
+      /* Tab Button Base Style for color cleanup */
+      .tab-btn {
+        transition: all 150ms ease-in-out;
+      }
+
+/* Tab title (main label) and subtitle colors for mega-menu tabs */
+/* Title: #15404E, Subtitle/secondary text: #343434 */
+/* #tabButtons .tab-btn > .text-sm > p {
+  color: #15404E !important;
+}
+#tabButtons .tab-btn .text-xs {
+  color: #707070 !important;
+} */
+
+/* Also apply to mobile/tab-button variants that may not use the exact same markup */
+/* .tab-btn p, .tab-btn .subtitle, .nav-toggle-btn .subtitle {
+  color: #707070 !important;
+} */
+
+.primary-btn {
+  background-color: #850a56;
+  color: #FFFFFF;
+  transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
+}
+.primary-btn:hover {
+  background-color: #15404E;
+  color: #FFFFFF;
+}
+.secondary-btn {
+  background-color: #ffffff;
+  color: #850a56;
+ 
+  border: 1px solid #850a56;
+  transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
+}
+.secondary-btn:hover {
+  background-color: #850a56;
+  color: #FFFFFF;
+}
+ 
+/* FAQ */
+
+.faq-content {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.3s ease-out;
+      }
+      .faq-item.active .faq-content {
+        grid-template-rows: 1fr;
+      }

@@ -1,0 +1,1463 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+      /* Define the utility classes for the smooth transition effect */
+      .smooth-hide {
+        max-height: 0;
+        opacity: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: hidden;
+      }
+      .smooth-show {
+        /* Increased max-height slightly to ensure it contains content before scroll takes over */
+        max-height: 600px;
+        opacity: 1;
+      }
+      /* Base arrow style (downward by default) */
+      .arrow {
+        transition-property: transform;
+        transition-duration: 300ms;
+        transition-timing-function: ease-in-out;
+      }
+      /* Rotated state (upward) */
+      .rotated {
+        transform: rotate(180deg);
+      }
+      /* Active Class for Navigation Links */
+      .nav-active {
+        color: #4f46e5; /* Tailwind indigo-600 */
+        font-weight: 600; /* Tailwind font-semibold */
+      }
+      /* Tab Button Base Style for color cleanup */
+      .tab-btn {
+        transition: all 150ms ease-in-out;
+      }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <section>
+      <header
+      id="header"
+      class="w-full bg-white shadow-lg  top-0 left-0 z-20"
+    >
+      <div class="max-w-7xl mx-auto p-4">
+        <!-- Navbar: MySite (Left) - Nav Links (Center) - Button (Right) -->
+        <nav class="flex items-center justify-between flex-wrap">
+          <!-- 1. Left: MySite Logo/Title -->
+          <!-- <div class="text-2xl font-extrabold text-indigo-700">MySite</div> -->
+           <div class="flex lg:flex-1">
+          <a href="#" class="-m-1.5 p-1.5">
+            <span class="sr-only">Alderr</span>
+            <span class="text-2xl font-extrabold text-blue-900">
+              <img src="images/subpage1/header_alderr_logo.svg" alt="Hero Image" class="object-cover"
+            /></span> 
+          </a>
+          <div class="flex pl-4 spruce" > | <span class="text-xl pl-2">a<span class="font-bold sq">P</span></span></div>
+        </div>
+
+          <!-- 2. Center: Desktop Navigation Links (Centered) -->
+          <div
+            id="desktop-menu"
+            class="hidden sm:flex sm:items-center sm:space-x-4 mx-auto"
+          >
+            <button
+              class="nav-toggle-btn flex items-center space-x-1 text-gray-700 hover:text-[#850a56] transition duration-150"
+              data-link="Home"
+            >
+              <span>Alignment Platforms</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <button
+              class="nav-toggle-btn flex items-center space-x-1 text-gray-700 hover:text-[#850a56] transition duration-150"
+              data-link="About"
+            >
+              <span>Why Alderr</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <button
+              class="nav-toggle-btn flex items-center space-x-1 text-gray-700 hover:text-[#850a56] transition duration-150"
+              data-link="Product"
+            >
+              <span>Who We Help</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <button
+              class="nav-toggle-btn flex items-center space-x-1 text-gray-700 hover:text-[#850a56] transition duration-150"
+              data-link="Service"
+            >
+              <span>Resources</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <button
+              class="nav-toggle-btn flex items-center space-x-1 text-gray-700 hover:text-[#850a56] transition duration-150"
+              data-link="Pricing"
+            >
+              <span>Company/Investors</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- 3. Right: Mobile Button and Get Started Button -->
+          <div class=" sm:hidden lg:flex lg:flex-1 lg:justify-end">
+            <!-- Desktop CTA Button -->
+            <button class="primary-btn hidden sm:block  text-sm font-semibold px-4 py-2 rounded-full ">
+                 Get Started
+                </button>
+            <!-- Mobile Menu Toggle -->
+            <button
+              id="mobile-menu-button"
+              class="sm:hidden py-2 px-6 bg-gray-50 text-gray-700 hover:bg-gray-100 focus:outline-none hover:px-6 py-2"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </nav>
+
+        <!-- Mobile Navigation Links (Unchanged) -->
+        <div
+          id="mobile-menu"
+          class="hidden sm:hidden w-full pt-2 border-t mt-2"
+        >
+          <button
+            class="nav-toggle-btn block w-full text-left p-2 text-gray-700 hover:bg-gray-100 transition duration-150"
+            data-link="Home"
+          >
+            <span class="flex items-center justify-between"
+              ><span class="">Alignment Platforms</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                /></svg ></span>
+          </button>
+          <button
+            class="nav-toggle-btn block w-full text-left p-2 text-gray-700 hover:bg-gray-100 transition duration-150"
+            data-link="About"
+          >
+            <span class="flex items-center justify-between"
+              ><span>Why Alderr</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                /></svg ></span>
+          </button>
+          <button
+            class="nav-toggle-btn block w-full text-left p-2 text-gray-700 hover:bg-gray-100 transition duration-150"
+            data-link="Product"
+          >
+            <span class="flex items-center justify-between"
+              ><span>Who We Help</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                /></svg ></span>
+          </button>
+          <button
+            class="nav-toggle-btn block w-full text-left p-2 text-gray-700 hover:bg-gray-100 transition duration-150"
+            data-link="Service"
+          >
+            <span class="flex items-center justify-between"
+              ><span>Resources</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                /></svg ></span>
+          </button>
+          <button
+            class="nav-toggle-btn block w-full text-left p-2 text-gray-700 hover:bg-gray-100 transition duration-150"
+            data-link="Pricing"
+          >
+            <span class="flex items-center justify-between"
+              ><span>Company / Investors</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                /></svg ></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Desktop Page Wrapper. We add 'relative' here so the absolute-positioned panel is contained within. -->
+    <div id="desktop-page-wrapper" class="  "  >
+      <!-- The Panel HTML. 'relative' class is removed here and added/removed dynamically by JS -->
+      <div
+        id="toggleDiv"
+        class="w-full border border-pearl shadow-xl overflow-hidden smooth-hide transition-all duration-500 ease-in-out bg-white sm:rounded-none sm:border-x-0"
+        role="region"
+      >
+        <!-- INNER WRAPPER: Constrains and centers the panel's content on desktop -->
+        <div class="max-w-7xl mx-auto ">
+          <!-- Close Button: Positioned absolute relative to the full-width panel. -->
+          <button
+            id="closeButton"
+            class="absolute top-7 sm:top-2 right-4 p-1 text-gray-400 hover:text-gray-600 focus:outline-none rounded-full transition-colors z-30"
+            aria-label="Close"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+
+          <div class="px-4">
+            <!-- Custom Content Container for "About" -->
+            <div id="about-content" class="text-gray-600 hidden pt-4">
+              <h3 class="text-xl font-semibold spruce mb-4 ">
+                Why Alderr
+              </h3>
+              <p class="mb-4">
+                This content is specific to the **About** link and does not use
+                tabs. The items below now have a hover effect.
+              </p>
+
+              <ul class="space-y-1">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-2 text-gray-700 hover:bg-gray-100 rounded-md transition duration-150"
+                  >
+                    Our Mission
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-2 text-gray-700 hover:bg-gray-100 rounded-md transition duration-150"
+                  >
+                    Our History
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-2 text-gray-700 hover:bg-gray-100 rounded-md transition duration-150"
+                  >
+                    Team Members
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Tabbed Content Container for ALL other links -->
+            <div id="tabbed-content" class="flex flex-col sm:flex-row ">
+              <!-- Tab Buttons Sidebar/Header (Horizontal on mobile, vertical on desktop) -->
+              <div
+                id="tabButtons"
+                class="flex flex-row overflow-x-auto space-x-0 bg-white sm:flex-col sm:space-y-0 sm:space-x-0 sm:min-w-[295px] sm:border-b-0"
+              >
+                
+
+                        <button class="tab-btn lg:pr-4 lg:py-7 text-sm text-left whitespace-nowrap sm:w-full" data-tab="tab1"> 
+  <div class="text-sm flex items-center">
+    <span>
+      <img src="images/menu/willow.svg" alt="sdocs Icon" class="w-4 h-4" />
+    </span>
+    <p class="pl-2 spruce hover:text-[#850a56] text-base">activ<span class="font-bold">Practice</span></p>
+  </div> 
+  <div class="text-xs lg:pl-6 hidden lg:block onyx">Billing Made Transactional, Then Free</div>  
+</button>
+               
+
+                       <button class="tab-btn lg:pr-4 lg:pb-7 text-sm  text-left whitespace-nowrap sm:w-full" data-tab="tab2"> 
+  <div class="text-sm flex items-center">
+    <span>
+      <img src="images/menu/abacus.svg" alt="sdocs Icon" class="w-4 h-4" />
+    </span>
+    <p class="pl-2 spruce hover:text-[#850a56] text-base">activ<span class="font-bold">Patient</span></p>
+  </div> 
+  <div class="text-xs lg:pl-6 hidden lg:block onyx">Financial Clarity for Every Family - $10/Month</div>  
+</button>
+                
+                   <button class="tab-btn lg:pr-4 lg:pb-7 text-sm  text-left whitespace-nowrap sm:w-full" data-tab="tab3"> 
+  <div class="text-sm flex items-center">
+    <span>
+      <img src="images/menu/sdocs.svg" alt="sdocs Icon" class="w-4 h-4" />
+    </span>
+    <p class="pl-2 spruce hover:text-[#850a56] text-base">activ<span class="font-bold">Workflow</span></p>
+  </div> 
+  <div class="text-xs lg:pl-6 hidden lg:block onyx">The coordination layer behind every transaction,</br> every partner, and every promise. -join waitllist</div>  
+</button>
+
+
+                <button class="tab-btn lg:pr-4 lg:pb-7 text-sm   text-left whitespace-nowrap sm:w-full" data-tab="tab4"> 
+  <div class="text-sm flex items-center">
+    <span>
+      <img src="images/menu/willow.svg" alt="Willow Icon" class="w-4 h-4 object-cover" />
+    </span>
+    <p class="pl-2 spruce hover:text-[#850a56] text-base">activ<span class="font-bold">Benefits</span></p>
+  </div> 
+  <div class="text-xs lg:pl-6 hidden lg:block onyx">Billing Made Transactional, Then Free</div>  
+</button>
+              </div>
+
+              <!-- Tab Content Wrapper (Max height and scrollable on both mobile and desktop) --> 
+              <div
+                id="tabContentWrapper"
+                class="flex-grow mt-4 sm:mt-0  transition-colors duration-300 max-h-[300px] sm:max-h-[400px] overflow-y-auto"
+              >
+                <div id="tabContent" class="border-l border-dashed border-gray-200 w-full pb-4">
+                  <div id="tab1" class="tab-pane">
+                    <h3 class="text-xl font-semibold mb-4 hidden">
+                      Selected Link: <span id="nav-link-title" class="hidden">
+
+Alignment Platforms</span> 
+                    </h3>
+
+                    <!-- 3-Column Layout for Home/Tab1 -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-1 ">
+                      <!-- Column 1 -->
+                      <div class="pl-2 pt-4 ">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          Features
+                        </h4>
+                        
+              <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Transactional Billing, Rebuilt
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    AR Optimization Reimagined
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Proof in Numbers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   EMR Your Way
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Functional Plug-Ins
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Patient Alignment
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    The Normal Stuff
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Free Billing Is Possible
+                  </a>
+                </li>
+             
+              </ul>
+                        
+                      </div>
+                      <!-- Column 2 -->
+                      <div class="border-l border-dashed border-gray-200 pl-2 pt-4">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          For
+                        </h4>
+                        <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Solo Providers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Group Practices
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    New Clinics
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                  Billing Companies
+                  </a>
+                </li>
+             
+              </ul>
+                      </div>
+                      <!-- Column 3 -->
+                      <div class="border-l border-dashed border-gray-200 pl-2 pt-4">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          Pricing
+                        </h4>
+                         <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Transactional First/Then Free
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Savings Calculator
+                  </a>
+                </li>
+                
+             
+              </ul>
+                      </div>
+
+
+
+<div class=" ">
+                      <div class="border-l border-dashed border-gray-200 bg-pearl px-2 pt-4">
+          <h4 class="text-xs uppercase text-gray-500 mb-4  ">
+            Featured Article
+          </h4>
+          <div class="flex flex-col space-y-3">
+            <img id="article-img" src="https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Featured" class="rounded-lg w-full h-32 object-cover">
+            <div class=" pb-2">
+              <h5 id="article-title" class="font-semibold text-gray-800">sDocs: The Future of Document Management</h5>
+              <p id="article-desc" class="text-sm text-gray-500">Simplify documentation and compliance with sDocs AI.</p>
+              <a href="#" class="spruce text-sm font-semibold inline-flex items-center space-x-1">
+                <span>Read more</span> <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div></div>
+                    </div>
+
+                    <!-- Added content to trigger desktop scrollbar when content overflows the 400px limit -->
+                    <!-- <div
+                      class="mt-6 p-4 bg-indigo-100/50 rounded-lg col-span-1 md:col-span-3"
+                    >
+                      <h4 class="font-bold text-lg mb-2 text-indigo-800">
+                        Further Details on System Architecture
+                      </h4>
+                  
+                   
+                    
+                    </div> -->
+                    <!-- End added content -->
+                  </div>
+
+                  <div id="tab2" class="tab-pane hidden">
+                     <div class="grid grid-cols-1 md:grid-cols-4 gap-6 ">
+                      <!-- Column 1 -->
+                      <div class="pl-2 pt-4">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          For You
+                        </h4>
+                        
+              <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Patients, Families & Caregivers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Step-by-Step Walkthrough
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Real Examples
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Data Safety 
+                  </a>
+                </li>
+                
+              </ul>
+                        
+                      </div>
+                      <!-- Column 2 -->
+                      <div class="border-l border-dashed border-gray-200 pl-2 pt-4">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          How Employers Can Help
+                        </h4>
+                        <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    HR Benefit Integration
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Reduce Premium Creep
+                  </a>
+                </li>
+            
+             
+              </ul>
+                      </div>
+                      <!-- Column 3 -->
+                      <div class="border-l border-dashed border-gray-200 pl-2 pt-4">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          Why It Matters
+                        </h4>
+                          <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    What’s a Credit Balance?
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Why Wait to Pay a Bill?
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Denials Aren’t Always Denials.
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Statements Aren’t Always Statements.
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Premiums keep rising 
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Medical Debt Is the #1 Cause of Bankruptcy.
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Learn More (blog w/ product tags)
+                  </a>
+                </li>
+                
+              </ul>
+                      </div>
+
+                               <!-- column 4-->
+<div class=" ">
+                    <div class="border-l border-dashed border-gray-200 py-2 pt-4 bg-pearl  px-2">
+          <h4 class="text-xs uppercase text-gray-500 mb-4 ">
+            Featured Article
+          </h4>
+          <div class="flex flex-col space-y-3">
+            <img id="article-img" src="images/subpage1/slider_doctor.PNG" alt="Featured" class="rounded-lg w-full h-32 object-cover">
+            <div class=" ">
+              <h5 id="article-title" class="font-semibold text-gray-800">Abacus: Smarter Workflow Automation</h5>
+              <p id="article-desc" class="text-sm text-gray-500">Explore how Abacus helps teams accelerate billing processes.</p>
+              <a href="#" class="spruce text-sm font-semibold inline-flex items-center space-x-1">
+                <span>Read more</span> <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        </div>
+                    </div>
+ 
+                  </div>
+
+
+                  <div id="tab3" class="tab-pane hidden">
+                   
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 ">
+                      <!-- Column 1 -->
+                      <div class=" pl-2 pt-4 ">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                       Management Centralized 
+                        </h4>
+                        
+              <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Command & Workflow Engine (Full RCM)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Self-Auditing QA 
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Communication Layer
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Proof in Numbers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                  Prioritization Logic
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Multi-Org Architecture
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Data Inflows
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   The Normal Stuff
+                  </a>
+                </li>
+             
+              </ul>
+                        
+                      </div>
+                      <!-- Column 2 -->
+                      <div class="border-l border-dashed border-gray-200 pl-2 pt-4">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          Partners
+                        </h4>
+                        <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Billing Firms
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Global BPOs
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   CBOs & Med to Large Practices
+                  </a>
+                </li>
+                 
+             
+              </ul>
+                      </div>
+                      <!-- Column 3 -->
+                      <div class="border-l border-dashed border-gray-200 pl-2 pt-4">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          Resources
+                        </h4>
+                         <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Blog
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Case Studies
+                  </a>
+                </li>
+                    <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Security & Compliance
+                  </a>
+                </li>
+                
+             
+              </ul>
+                      </div>
+
+                      <!-- Column 4 -->
+                      <div class="">
+                       
+                        <div class="border-l border-dashed border-gray-200 px-2 pt-4 bg-pearl ">
+          <h4 class="text-xs uppercase text-gray-500 mb-4  ">
+            Featured Article
+          </h4>
+          <div class="flex flex-col space-y-3">
+            <img id="article-img" src="images/subpage1/slider_doctor2.PNG" alt="Featured" class="rounded-lg w-full h-32 object-cover">
+            <div class=" ">
+              <h5 id="article-title" class="font-semibold text-gray-800">Willow in Action: Simplifying Healthcare</h5>
+              <p id="article-desc" class="text-sm text-gray-500">Discover how AI transforms everyday healthcare operations.</p>
+              <a href="#" class="spruce text-sm font-semibold inline-flex items-center space-x-1">
+                <span>Read more</span> <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+
+                      </div>
+
+
+
+                    </div>
+
+
+
+
+
+                  </div>
+
+                  <!-- tab 3 end here-->
+ <div id="tab4" class="tab-pane hidden">
+                   
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 ">
+                      <!-- Column 1 -->
+                      <div class="  pl-2 pt-4">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                       Management Centralized 
+                        </h4>
+                        
+              <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Command & Workflow Engine (Full RCM)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Self-Auditing QA 
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Communication Layer
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Proof in Numbers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                  Prioritization Logic
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Multi-Org Architecture
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Data Inflows
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   The Normal Stuff
+                  </a>
+                </li>
+             
+              </ul>
+                        
+                      </div>
+                      <!-- Column 2 -->
+                      <div class="border-l border-dashed border-gray-200 pl-2 pt-4 ">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          Partners
+                        </h4>
+                        <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Billing Firms
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Global BPOs
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   CBOs & Med to Large Practices
+                  </a>
+                </li>
+                 
+             
+              </ul>
+                      </div>
+                      <!-- Column 3 -->
+                      <div class="border-l border-dashed border-gray-200 pl-2 pt-4 ">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          Resources
+                        </h4>
+                         <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Blog
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Case Studies
+                  </a>
+                </li>
+                    <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Security & Compliance
+                  </a>
+                </li>
+                
+             
+              </ul>
+                      </div>
+
+                      <!-- Column 4 -->
+                      <div class="">
+                      <div class="border-l border-dashed border-gray-200 pt-4 bg-pearl px-2">
+          <h4 class="text-xs uppercase text-gray-500 mb-4 ">
+            Featured Article
+          </h4>
+          <div class="flex flex-col space-y-3">
+            <img id="article-img" src="https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Featured" class="rounded-lg w-full h-32 object-cover">
+            <div class=" ">
+              <h5 id="article-title" class="font-semibold text-gray-800">sDocs: The Future of Document Management</h5>
+              <p id="article-desc" class="text-sm text-gray-500">Simplify documentation and compliance with sDocs AI.</p>
+              <a href="#" class="spruce text-sm font-semibold inline-flex items-center space-x-1">
+                <span>Read more</span> <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div></div>
+
+
+
+                    </div>
+
+
+
+
+
+                  </div>
+
+                  <!-- tab end herer-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- This is the centered anchor point for the rest of the page's content -->
+       
+    </div>
+
+     </section>
+
+     <script >
+        const isMobile = () => window.innerWidth < 640;
+
+      // Flicker Fix: Ensure the panel is hidden immediately on load
+      document.getElementById("toggleDiv").classList.add("smooth-hide");
+
+      const initMmenu = () => {
+        const navButtons = document.querySelectorAll(".nav-toggle-btn");
+        const closeButton = document.getElementById("closeButton");
+        const toggleDiv = document.getElementById("toggleDiv");
+        const header = document.getElementById("header");
+        const navLinkTitle = document.getElementById("nav-link-title");
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        // New Anchor Point for Desktop Insertion (the full width container)
+        const desktopInsertionAnchor = document.getElementById(
+          "desktop-page-wrapper"
+        );
+        // The constraint element used to determine where to place the panel relative to page content
+        const mainContentContainer = document.getElementById(
+          "main-content-container"
+        );
+
+        const aboutContent = document.getElementById("about-content");
+        const howitworkContent = document.getElementById("how-it-work-content");
+        const tabbedContent = document.getElementById("tabbed-content");
+
+        const tabButtons = document.querySelectorAll(".tab-btn");
+        const tabPanes = document.querySelectorAll(".tab-pane");
+        const tabContentWrapper = document.getElementById("tabContentWrapper");
+
+        let isPanelOpen = false;
+        let activeNavButton = null;
+
+        // Define all colors associated with each tab (unchanged)
+        // Keep color *text* settings but remove any background utilities so
+        // tabs and the tab content wrapper remain white.
+        // Remove colored text utilities; keep backgrounds empty. We'll
+        // use 'spruce' for active elements and neutral gray for content.
+        const COLORS = {
+          tab1: { contentBg: '', buttonBg: '', contentText: '', titleText: '' },
+          tab2: { contentBg: '', buttonBg: '', contentText: '', titleText: '' },
+          tab3: { contentBg: '', buttonBg: '', contentText: '', titleText: '' },
+          tab4: { contentBg: '', buttonBg: '', contentText: '', titleText: '' },
+        };
+
+        // Remove hover background classes to avoid any colored hover backgrounds
+        const INACTIVE_HOVER_CLASSES = {
+          tab1: "",
+          tab2: "",
+          tab3: "",
+          tab4: "",
+        };
+
+        const ALL_BG_CLASSES = ['bg-indigo-50', 'bg-pink-50', 'bg-amber-50', 'bg-green-50'];
+        const ALL_BUTTON_BG_CLASSES = [
+          "bg-indigo-200",
+          "bg-pink-200",
+          "bg-amber-200",
+          "bg-green-200",
+        ];
+        // Keep an array of colored text classes so we can remove them if present
+        const ALL_TEXT_CLASSES = [
+          "text-indigo-800",
+          "text-pink-800",
+          "text-amber-800",
+          'text-green-800',
+        ];
+        const ALL_INACTIVE_CLASSES = ["text-gray-700", "hover:bg-gray-100"];
+
+        // --- Arrow Helper ---
+        const getArrow = (button) => {
+          return button.querySelector(".arrow");
+        };
+
+        // --- Panel Visibility Functions ---
+        const openDiv = (button) => {
+          const linkName = button.getAttribute("data-link");
+          const isAboutPanel = linkName === "About";
+
+          // 1. Navigation Active State & Arrow Cleanup
+          if (activeNavButton) {
+            activeNavButton.classList.remove("nav-active");
+            const prevArrow = getArrow(activeNavButton);
+            if (prevArrow) prevArrow.classList.remove("rotated");
+          }
+
+          // 2. Dynamic Panel Movement (Mobile/Desktop) & Class Setup
+          if (isMobile()) {
+            // Mobile: Panel remains in normal flow (relative) to push content down
+            button.parentNode.insertBefore(toggleDiv, button.nextSibling);
+            // Ensure relative positioning and mobile styles
+            toggleDiv.classList.add("relative", "border-x-0", "border-b-0");
+            toggleDiv.classList.remove(
+              "absolute",
+              "top-0",
+              "z-50",
+              "mt-4",
+              "sm:rounded-none",
+              "sm:border-x-0",
+              "border"
+            );
+          } else {
+            // Desktop: Panel uses absolute positioning to overlay content
+            if (toggleDiv.parentNode !== desktopInsertionAnchor) {
+              desktopInsertionAnchor.insertBefore(
+                toggleDiv,
+                mainContentContainer
+              );
+            }
+            // Apply ABOLUTE positioning to overlay content. top-0 aligns it exactly below the fixed header.
+            toggleDiv.classList.add(
+              "absolute",
+              "top-14",
+              "z-50",
+              "sm:rounded-none",
+              "sm:border-x-0",
+              "border"
+            );
+            toggleDiv.classList.remove(
+              "relative",
+              "border-x-0",
+              "border-b-0",
+              "mt-4"
+            );
+          }
+
+          // 3. Conditional Content Toggle
+          if (isAboutPanel) {
+            tabbedContent.classList.add("hidden");
+            aboutContent.classList.remove("hidden");
+             
+          } else {
+            aboutContent.classList.add("hidden");
+            tabbedContent.classList.remove("hidden");
+           
+            openTab("tab1"); // Default to Tab 1 if content is tabbed
+          }
+
+          // 4. Navigation Active State & Arrow Update
+          navLinkTitle.textContent = linkName;
+          button.classList.add("nav-active");
+          const currentArrow = getArrow(button);
+          if (currentArrow) currentArrow.classList.add("rotated");
+          activeNavButton = button;
+
+          // 5. Show Panel
+          toggleDiv.classList.add("smooth-show");
+          toggleDiv.classList.remove("smooth-hide");
+          isPanelOpen = true;
+        };
+
+        const closeDiv = (isManualClose = false) => {
+          // Remove active state and rotation
+          if (activeNavButton) {
+            activeNavButton.classList.remove("nav-active");
+            const arrow = getArrow(activeNavButton);
+            if (arrow) arrow.classList.remove("rotated");
+            activeNavButton = null;
+          }
+
+          // Hide Panel
+          toggleDiv.classList.add("smooth-hide");
+          toggleDiv.classList.remove("smooth-show");
+          isPanelOpen = false;
+
+          // Only close the mobile menu if the close trigger was NOT the internal close button or manual toggle.
+          if (
+            isMobile() &&
+            !isManualClose &&
+            !mobileMenu.classList.contains("hidden")
+          ) {
+            mobileMenu.classList.add("hidden");
+          }
+        };
+
+        // --- Tab Switching Function (unchanged) ---
+        const openTab = (tabId) => {
+          const colorSet = COLORS[tabId];
+
+          // 1. Clean up ALL tab buttons and set INACTIVE colored state
+          tabButtons.forEach((btn) => {
+            // Ensure any previously applied colored classes are removed
+            btn.classList.remove(
+              "tab-active",
+              ...ALL_BUTTON_BG_CLASSES,
+              ...ALL_BG_CLASSES,
+              ...ALL_TEXT_CLASSES,
+              'text-gray-700'
+            );
+
+            // Set inactive button label color to neutral gray
+            btn.classList.add('text-gray-700');
+          });
+
+          // 2. Hide all tab content panes
+          tabPanes.forEach((pane) => {
+            pane.classList.add("hidden");
+          });
+
+          // 3. Clean up content wrapper colors and ensure it stays white
+          tabContentWrapper.classList.remove(...ALL_BG_CLASSES);
+          tabContentWrapper.classList.add('bg-white');
+
+          // 4. Apply ACTIVE Button Colors
+          const activeBtn = document.querySelector(
+            `.tab-btn[data-tab="${tabId}"]`
+          );
+          if (activeBtn) {
+            // Remove any previously applied text classes and neutral gray
+            activeBtn.classList.remove(...ALL_TEXT_CLASSES, 'text-gray-700');
+            // Keep active text color as 'spruce' only
+            activeBtn.classList.add("spruce", "tab-active");
+          }
+
+          // 5. Do not apply any colored background to the content wrapper (keep white)
+          tabContentWrapper.classList.add('bg-white');
+
+          // 6. Show active tab pane and set dynamic text colors
+          document.getElementById(tabId).classList.remove("hidden");
+
+          // Update text color for content inside the tab pane
+          const contentDiv = document.getElementById("tabContent");
+          // remove any colored text classes and use neutral gray for content
+          contentDiv.classList.remove(...ALL_TEXT_CLASSES);
+          contentDiv.classList.add('text-gray-700');
+
+          // Update the title color inside the tab pane
+          const titleSpan = document.getElementById("nav-link-title");
+          if (titleSpan) {
+            titleSpan.classList.remove(...ALL_TEXT_CLASSES, 'text-gray-700');
+            titleSpan.classList.add('spruce');
+          }
+        };
+
+        // --- Event Listeners (mostly unchanged) ---
+        mobileMenuButton.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+          if (isPanelOpen) {
+            closeDiv(true);
+          }
+        });
+
+        navButtons.forEach((button) => {
+          button.addEventListener("click", (event) => {
+            event.stopPropagation();
+
+            if (isPanelOpen && activeNavButton === button) {
+              closeDiv(true);
+              return;
+            }
+            openDiv(button);
+          });
+        });
+
+        closeButton.addEventListener("click", () => {
+          closeDiv(true);
+        });
+
+        document.addEventListener("click", (event) => {
+          if (isPanelOpen) {
+            // Check if click target is outside the panel AND outside the header
+            if (
+              !toggleDiv.contains(event.target) &&
+              !header.contains(event.target)
+            ) {
+              closeDiv(false);
+            }
+          }
+        });
+
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            openTab(button.getAttribute("data-tab"));
+          });
+        });
+
+        window.addEventListener("resize", () => {
+          // Ensure the panel is correctly positioned on resize if changing from mobile to desktop view
+          if (!isMobile() && toggleDiv.parentNode !== desktopInsertionAnchor) {
+            closeDiv(true);
+            desktopInsertionAnchor.insertBefore(
+              toggleDiv,
+              mainContentContainer
+            );
+            // Apply desktop overlay classes on resize if it needs to be moved back
+            toggleDiv.classList.add(
+              "absolute",
+              "top-0",
+              "z-50",
+              "sm:rounded-none",
+              "sm:border-x-0",
+              "border"
+            );
+            toggleDiv.classList.remove(
+              "relative",
+              "border-x-0",
+              "border-b-0",
+              "mt-4"
+            );
+          }
+        });
+      };
+
+      // Initialize immediately if DOM already loaded, otherwise wait for DOMContentLoaded
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMmenu);
+      } else {
+        initMmenu();
+      }
+     </script>
+</body>
+</html>
+
+  
+
+     

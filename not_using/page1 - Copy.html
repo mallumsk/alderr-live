@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alderr | Feature Vitae</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-white text-gray-800 font-sans">
+    <!-- Header -->
+     <section>
+      <header
+      id="header"
+      class="w-full bg-white shadow-lg  top-0 left-0 z-20"
+    >
+      <div class="max-w-7xl mx-auto p-4">
+        <!-- Navbar: MySite (Left) - Nav Links (Center) - Button (Right) -->
+        <nav class="flex items-center justify-between flex-wrap">
+          <!-- 1. Left: MySite Logo/Title -->
+          <!-- <div class="text-2xl font-extrabold text-indigo-700">MySite</div> -->
+           <div class="flex lg:flex-1">
+          <a href="#" class="-m-1.5 p-1.5">
+            <span class="sr-only">Alderr</span>
+            <span class="text-2xl font-extrabold text-blue-900">
+              <img src="../images/subpage1/header_alderr_logo.svg" alt="Hero Image" class="object-cover"
+            /></span> 
+          </a>
+          <div class="flex pl-4 spruce" > | <span class="text-xl pl-2">a<span class="font-bold sq">P</span></span></div>
+        </div>
+
+          <!-- 2. Center: Desktop Navigation Links (Centered) -->
+          <div
+            id="desktop-menu"
+            class="hidden sm:flex sm:items-center sm:space-x-4 mx-auto"
+          >
+            <button
+              class="nav-toggle-btn flex items-center space-x-1 text-gray-700 hover:text-[#850a56] transition duration-150"
+              data-link="Home"
+            >
+              <span>Alignment Platforms</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <button
+              class="nav-toggle-btn flex items-center space-x-1 text-gray-700 hover:text-[#850a56] transition duration-150"
+              data-link="About"
+            >
+              <span>Why Alderr</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <button
+              class="nav-toggle-btn flex items-center space-x-1 text-gray-700 hover:text-[#850a56] transition duration-150"
+              data-link="Product"
+            >
+              <span>Who We Help</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <button
+              class="nav-toggle-btn flex items-center space-x-1 text-gray-700 hover:text-[#850a56] transition duration-150"
+              data-link="Service"
+            >
+              <span>Resources</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <button
+              class="nav-toggle-btn flex items-center space-x-1 text-gray-700 hover:text-[#850a56] transition duration-150"
+              data-link="Pricing"
+            >
+              <span>Company/Investors</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- 3. Right: Mobile Button and Get Started Button -->
+          <div class=" sm:hidden lg:flex lg:flex-1 lg:justify-end">
+            <!-- Desktop CTA Button -->
+            <button class="primary-btn hidden sm:block  text-sm font-semibold px-4 py-2 rounded-full ">
+                 Get Started
+                </button>
+            <!-- Mobile Menu Toggle -->
+            <button
+              id="mobile-menu-button"
+              class="sm:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </nav>
+
+        <!-- Mobile Navigation Links (Unchanged) -->
+        <div
+          id="mobile-menu"
+          class="hidden sm:hidden w-full pt-2 border-t mt-2"
+        >
+          <button
+            class="nav-toggle-btn block w-full text-left p-2 text-gray-700 hover:bg-gray-100 transition duration-150"
+            data-link="Home"
+          >
+            <span class="flex items-center justify-between"
+              ><span class="">Alignment Platforms</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                /></svg ></span>
+          </button>
+          <button
+            class="nav-toggle-btn block w-full text-left p-2 text-gray-700 hover:bg-gray-100 transition duration-150"
+            data-link="About"
+          >
+            <span class="flex items-center justify-between"
+              ><span>Why Alderr</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                /></svg ></span>
+          </button>
+          <button
+            class="nav-toggle-btn block w-full text-left p-2 text-gray-700 hover:bg-gray-100 transition duration-150"
+            data-link="Product"
+          >
+            <span class="flex items-center justify-between"
+              ><span>Who We Help</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                /></svg ></span>
+          </button>
+          <button
+            class="nav-toggle-btn block w-full text-left p-2 text-gray-700 hover:bg-gray-100 transition duration-150"
+            data-link="Service"
+          >
+            <span class="flex items-center justify-between"
+              ><span>Resources</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                /></svg ></span>
+          </button>
+          <button
+            class="nav-toggle-btn block w-full text-left p-2 text-gray-700 hover:bg-gray-100 transition duration-150"
+            data-link="Pricing"
+          >
+            <span class="flex items-center justify-between"
+              ><span>Company / Investors</span
+              ><svg
+                class="arrow h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                /></svg ></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Desktop Page Wrapper. We add 'relative' here so the absolute-positioned panel is contained within. -->
+    <div id="desktop-page-wrapper" class="  "  >
+      <!-- The Panel HTML. 'relative' class is removed here and added/removed dynamically by JS -->
+      <div
+        id="toggleDiv"
+        class="w-full border border-pearl shadow-xl overflow-hidden smooth-hide transition-all duration-500 ease-in-out bg-white sm:rounded-none sm:border-x-0"
+        role="region"
+      >
+        <!-- INNER WRAPPER: Constrains and centers the panel's content on desktop -->
+        <div class="max-w-7xl mx-auto ">
+          <!-- Close Button: Positioned absolute relative to the full-width panel. -->
+          <button
+            id="closeButton"
+            class="absolute top-7 sm:top-2 right-4 p-1 text-gray-400 hover:text-gray-600 focus:outline-none rounded-full transition-colors z-30"
+            aria-label="Close"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+
+          <div class="px-4">
+            <!-- Custom Content Container for "About" -->
+            <div id="about-content" class="text-gray-600 hidden pt-4">
+              <h3 class="text-xl font-semibold spruce mb-4 ">
+                Why Alderr
+              </h3>
+              <p class="mb-4">
+                This content is specific to the **About** link and does not use
+                tabs. The items below now have a hover effect.
+              </p>
+
+              <ul class="space-y-1">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-2 text-gray-700 hover:bg-gray-100 rounded-md transition duration-150"
+                  >
+                    Our Mission
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-2 text-gray-700 hover:bg-gray-100 rounded-md transition duration-150"
+                  >
+                    Our History
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-2 text-gray-700 hover:bg-gray-100 rounded-md transition duration-150"
+                  >
+                    Team Members
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Tabbed Content Container for ALL other links -->
+            <div id="tabbed-content" class="flex flex-col sm:flex-row ">
+              <!-- Tab Buttons Sidebar/Header (Horizontal on mobile, vertical on desktop) -->
+              <div
+                id="tabButtons"
+                class="flex flex-row overflow-x-auto space-x-0 bg-white sm:flex-col sm:space-y-0 sm:space-x-0 sm:min-w-[295px] sm:border-b-0"
+              >
+                
+
+                        <button class="tab-btn lg:pr-4 lg:py-7 text-sm text-left whitespace-nowrap sm:w-full" data-tab="tab1"> 
+  <div class="text-sm flex items-center">
+    <span>
+      <img src="../images/menu/willow.svg" alt="sdocs Icon" class="w-4 h-4" />
+    </span>
+    <p class="pl-2 spruce hover:text-[#850a56] text-base">activ<span class="font-bold">Practice</span></p>
+  </div> 
+  <div class="text-xs lg:pl-6 hidden lg:block onyx">Billing Made Transactional, Then Free</div>  
+</button>
+               
+
+                       <button class="tab-btn lg:pr-4 lg:pb-7 text-sm  text-left whitespace-nowrap sm:w-full" data-tab="tab2"> 
+  <div class="text-sm flex items-center">
+    <span>
+      <img src="../images/menu/abacus.svg" alt="sdocs Icon" class="w-4 h-4" />
+    </span>
+    <p class="pl-2 spruce hover:text-[#850a56] text-base">activ<span class="font-bold">Patient</span></p>
+  </div> 
+  <div class="text-xs lg:pl-6 hidden lg:block onyx">Financial Clarity for Every Family - $10/Month</div>  
+</button>
+                
+                   <button class="tab-btn lg:pr-4 lg:pb-7 text-sm  text-left whitespace-nowrap sm:w-full" data-tab="tab3"> 
+  <div class="text-sm flex items-center">
+    <span>
+      <img src="../images/menu/sdocs.svg" alt="sdocs Icon" class="w-4 h-4" />
+    </span>
+    <p class="pl-2 spruce hover:text-[#850a56] text-base">activ<span class="font-bold">Workflow</span></p>
+  </div> 
+  <div class="text-xs lg:pl-6 hidden lg:block onyx">The coordination layer behind every transaction,</br> every partner, and every promise. -join waitllist</div>  
+</button>
+
+
+                <button class="tab-btn lg:pr-4 lg:pb-7 text-sm   text-left whitespace-nowrap sm:w-full" data-tab="tab4"> 
+  <div class="text-sm flex items-center">
+    <span>
+      <img src="../images/menu/willow.svg" alt="Willow Icon" class="w-4 h-4 object-cover" />
+    </span>
+    <p class="pl-2 spruce hover:text-[#850a56] text-base">activ<span class="font-bold">Benefits</span></p>
+  </div> 
+  <div class="text-xs lg:pl-6 hidden lg:block onyx">Billing Made Transactional, Then Free</div>  
+</button>
+              </div>
+
+              <!-- Tab Content Wrapper (Max height and scrollable on both mobile and desktop) --> 
+              <div
+                id="tabContentWrapper"
+                class="flex-grow mt-4 sm:mt-0  transition-colors duration-300 max-h-[300px] sm:max-h-[400px] overflow-y-auto"
+              >
+                <div id="tabContent" class="border-l border-dashed border-gray-200 w-full pb-4">
+                  <div id="tab1" class="tab-pane">
+                    <h3 class="text-xl font-semibold mb-4 hidden">
+                      Selected Link: <span id="nav-link-title" class="hidden">
+
+Alignment Platforms</span> 
+                    </h3>
+
+                    <!-- 3-Column Layout for Home/Tab1 -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-1 ">
+                      <!-- Column 1 -->
+                      <div class="pl-2 pt-4 ">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          Features
+                        </h4>
+                        
+              <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Transactional Billing, Rebuilt
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    AR Optimization Reimagined
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Proof in Numbers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   EMR Your Way
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Functional Plug-Ins
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Patient Alignment
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    The Normal Stuff
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Free Billing Is Possible
+                  </a>
+                </li>
+             
+              </ul>
+                        
+                      </div>
+                      <!-- Column 2 -->
+                      <div class="border-l border-dashed border-gray-200 pl-2 pt-4">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          For
+                        </h4>
+                        <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Solo Providers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Group Practices
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    New Clinics
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                  Billing Companies
+                  </a>
+                </li>
+             
+              </ul>
+                      </div>
+                      <!-- Column 3 -->
+                      <div class="border-l border-dashed border-gray-200 pl-2 pt-4">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          Pricing
+                        </h4>
+                         <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Transactional First/Then Free
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Savings Calculator
+                  </a>
+                </li>
+                
+             
+              </ul>
+                      </div>
+
+
+
+<div class=" ">
+                      <div class="border-l border-dashed border-gray-200 bg-pearl px-2 pt-4">
+          <h4 class="text-xs uppercase text-gray-500 mb-4  ">
+            Featured Article
+          </h4>
+          <div class="flex flex-col space-y-3">
+            <img id="article-img" src="https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Featured" class="rounded-lg w-full h-32 object-cover">
+            <div class=" pb-2">
+              <h5 id="article-title" class="font-semibold text-gray-800">sDocs: The Future of Document Management</h5>
+              <p id="article-desc" class="text-sm text-gray-500">Simplify documentation and compliance with sDocs AI.</p>
+              <a href="#" class="spruce text-sm font-semibold inline-flex items-center space-x-1">
+                <span>Read more</span> <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div></div>
+                    </div>
+
+                    <!-- Added content to trigger desktop scrollbar when content overflows the 400px limit -->
+                    <!-- <div
+                      class="mt-6 p-4 bg-indigo-100/50 rounded-lg col-span-1 md:col-span-3"
+                    >
+                      <h4 class="font-bold text-lg mb-2 text-indigo-800">
+                        Further Details on System Architecture
+                      </h4>
+                  
+                   
+                    
+                    </div> -->
+                    <!-- End added content -->
+                  </div>
+
+                  <div id="tab2" class="tab-pane hidden">
+                     <div class="grid grid-cols-1 md:grid-cols-4 gap-6 ">
+                      <!-- Column 1 -->
+                      <div class="pl-2 pt-4">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          For You
+                        </h4>
+                        
+              <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Patients, Families & Caregivers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Step-by-Step Walkthrough
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Real Examples
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Data Safety 
+                  </a>
+                </li>
+                
+              </ul>
+                        
+                      </div>
+                      <!-- Column 2 -->
+                      <div class="border-l border-dashed border-gray-200 pl-2 pt-4">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          How Employers Can Help
+                        </h4>
+                        <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    HR Benefit Integration
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Reduce Premium Creep
+                  </a>
+                </li>
+            
+             
+              </ul>
+                      </div>
+                      <!-- Column 3 -->
+                      <div class="border-l border-dashed border-gray-200 pl-2 pt-4">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          Why It Matters
+                        </h4>
+                          <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    What’s a Credit Balance?
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Why Wait to Pay a Bill?
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Denials Aren’t Always Denials.
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Statements Aren’t Always Statements.
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Premiums keep rising 
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Medical Debt Is the #1 Cause of Bankruptcy.
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Learn More (blog w/ product tags)
+                  </a>
+                </li>
+                
+              </ul>
+                      </div>
+
+                               <!-- column 4-->
+<div class=" ">
+                    <div class="border-l border-dashed border-gray-200 py-2 pt-4 bg-pearl  px-2">
+          <h4 class="text-xs uppercase text-gray-500 mb-4 ">
+            Featured Article
+          </h4>
+          <div class="flex flex-col space-y-3">
+            <img id="article-img" src="../images/subpage1/slider_doctor.PNG" alt="Featured" class="rounded-lg w-full h-32 object-cover">
+            <div class=" ">
+              <h5 id="article-title" class="font-semibold text-gray-800">Abacus: Smarter Workflow Automation</h5>
+              <p id="article-desc" class="text-sm text-gray-500">Explore how Abacus helps teams accelerate billing processes.</p>
+              <a href="#" class="spruce text-sm font-semibold inline-flex items-center space-x-1">
+                <span>Read more</span> <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        </div>
+                    </div>
+ 
+                  </div>
+
+
+                  <div id="tab3" class="tab-pane hidden">
+                   
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 ">
+                      <!-- Column 1 -->
+                      <div class=" pl-2 pt-4 ">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                       Management Centralized 
+                        </h4>
+                        
+              <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Command & Workflow Engine (Full RCM)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Self-Auditing QA 
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Communication Layer
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Proof in Numbers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                  Prioritization Logic
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Multi-Org Architecture
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Data Inflows
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   The Normal Stuff
+                  </a>
+                </li>
+             
+              </ul>
+                        
+                      </div>
+                      <!-- Column 2 -->
+                      <div class="border-l border-dashed border-gray-200 pl-2 pt-4">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          Partners
+                        </h4>
+                        <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Billing Firms
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Global BPOs
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   CBOs & Med to Large Practices
+                  </a>
+                </li>
+                 
+             
+              </ul>
+                      </div>
+                      <!-- Column 3 -->
+                      <div class="border-l border-dashed border-gray-200 pl-2 pt-4">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          Resources
+                        </h4>
+                         <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Blog
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Case Studies
+                  </a>
+                </li>
+                    <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Security & Compliance
+                  </a>
+                </li>
+                
+             
+              </ul>
+                      </div>
+
+                      <!-- Column 4 -->
+                      <div class="">
+                       
+                        <div class="border-l border-dashed border-gray-200 px-2 pt-4 bg-pearl ">
+          <h4 class="text-xs uppercase text-gray-500 mb-4  ">
+            Featured Article
+          </h4>
+          <div class="flex flex-col space-y-3">
+            <img id="article-img" src="../images/subpage1/slider_doctor2.PNG" alt="Featured" class="rounded-lg w-full h-32 object-cover">
+            <div class=" ">
+              <h5 id="article-title" class="font-semibold text-gray-800">Willow in Action: Simplifying Healthcare</h5>
+              <p id="article-desc" class="text-sm text-gray-500">Discover how AI transforms everyday healthcare operations.</p>
+              <a href="#" class="spruce text-sm font-semibold inline-flex items-center space-x-1">
+                <span>Read more</span> <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+
+                      </div>
+
+
+
+                    </div>
+
+
+
+
+
+                  </div>
+
+                  <!-- tab 3 end here-->
+ <div id="tab4" class="tab-pane hidden">
+                   
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 ">
+                      <!-- Column 1 -->
+                      <div class="  pl-2 pt-4">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                       Management Centralized 
+                        </h4>
+                        
+              <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Command & Workflow Engine (Full RCM)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Self-Auditing QA 
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Communication Layer
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   Proof in Numbers
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                  Prioritization Logic
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Multi-Org Architecture
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Data Inflows
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   The Normal Stuff
+                  </a>
+                </li>
+             
+              </ul>
+                        
+                      </div>
+                      <!-- Column 2 -->
+                      <div class="border-l border-dashed border-gray-200 pl-2 pt-4 ">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          Partners
+                        </h4>
+                        <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Billing Firms
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Global BPOs
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                   CBOs & Med to Large Practices
+                  </a>
+                </li>
+                 
+             
+              </ul>
+                      </div>
+                      <!-- Column 3 -->
+                      <div class="border-l border-dashed border-gray-200 pl-2 pt-4 ">
+                        <h4 class="text-xs uppercase text-gray-500 mb-4">
+                          Resources
+                        </h4>
+                         <ul class="space-y-1 text-sm">
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Blog
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Case Studies
+                  </a>
+                </li>
+                    <li>
+                  <a
+                    href="#"
+                    class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                  >
+                    Security & Compliance
+                  </a>
+                </li>
+                
+             
+              </ul>
+                      </div>
+
+                      <!-- Column 4 -->
+                      <div class="">
+                      <div class="border-l border-dashed border-gray-200 pt-4 bg-pearl px-2">
+          <h4 class="text-xs uppercase text-gray-500 mb-4 ">
+            Featured Article
+          </h4>
+          <div class="flex flex-col space-y-3">
+            <img id="article-img" src="https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Featured" class="rounded-lg w-full h-32 object-cover">
+            <div class=" ">
+              <h5 id="article-title" class="font-semibold text-gray-800">sDocs: The Future of Document Management</h5>
+              <p id="article-desc" class="text-sm text-gray-500">Simplify documentation and compliance with sDocs AI.</p>
+              <a href="#" class="spruce text-sm font-semibold inline-flex items-center space-x-1">
+                <span>Read more</span> <span>→</span>
+              </a>
+            </div>
+          </div>
+        </div></div>
+
+
+
+                    </div>
+
+
+
+
+
+                  </div>
+
+                  <!-- tab end herer-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- This is the centered anchor point for the rest of the page's content -->
+       
+    </div>
+
+     </section>
+     
+
+    <!-- Hero Section -->
+
+    <section class="bg-warm-grey py-24">
+       <div class="static hidden lg:block">
+            
+           
+          </div>
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <p class="text-sm uppercase tracking-wide onyx mb-2 text-left">
+            Overline
+          </p>
+            <h2 class="text-4xl font-bold mb-4 text-left">
+              SmartBug | Header lorem ipsum
+            </h2>
+            <p class="text-gray-600 text-left">
+             Malesuada amet neque diam arcu. Mauris pharetra eu ornare lorem porta nibh condimentum pellentesque.
+            </p>
+            <div class="mt-6 text-left">
+             <a href="#"><button class="primary-btn text-sm font-semibold px-4 py-2 rounded-full ">
+                  Primary CTA
+                </button></a>
+              <a href="#"><button class="secondary-btn text-sm font-semibold px-4 py-2 rounded-full ml-2 ">
+            Secondary CTA
+          </button></a>
+
+          
+              
+              </div>
+          </div>
+          <img
+            src="../images/subpage1/happy_face_shape.png"
+            alt="Brand Image 3"
+            class="object-cover"
+          />
+        </div>
+
+        
+      </div>
+    </section>
+
+ 
+    <!-- Section 2 -->
+    <section class="py-32 bg-white">
+          <div class="static hidden lg:block">
+            
+               
+          </div>
+      <div class="max-w-6xl mx-auto px-6 space-y-12">
+
+
+        <div class=" text-center">
+        <p class="text-xl mb-2">These great team use our softeware</p>
+
+        <div class="grid md:grid-cols-5 py-6 gap-10 items-center">
+          <div class=" mx-auto">
+            <img src="../images/social_media/c1.svg" alt="Hero Image" class="object-cover">
+          </div>
+
+          <div class="mx-auto ">
+            <img src="../images/social_media/c2.svg" alt="Hero Image" class="object-cover">
+          </div>
+
+          <div class=" mx-auto">
+            <img src="../images/social_media/c3.svg" alt="Hero Image" class="object-cover">
+          </div>
+
+          <div class=" mx-auto">
+            <img src="../images/social_media/c4.svg" alt="Hero Image" class="object-cover">
+          </div>
+          <div class="mx-auto ">
+            <img src="../images/social_media/c5.svg" alt="youtube" class="object-cover">
+          </div>
+        </div>
+      </div>
+        <!-- Block 1 -->
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+                    <img
+            src="../images/subpage1/smaling_face.png"
+            alt="Brand Image 3"
+            class="md:hidden rounded-xl object-cover mb-6"
+          />
+            <h2 class="text-4xl font-bold mb-4">
+              Feature vitae dignissim sit aenean sem nulla eget
+            </h2>
+            <p class="text-gray-600">
+              Description mattis tincidunt consectetur massa. Sit elementum at lacus nisl tincidunt semper amet. Egestas nisi ut felis amet nunc. Tincidunt cras consequat arcu gravida justo non. Et euismod tincidunt lorem odio bibendum diam nunc pellentesque massa. Massa et ullamcorper nulla.
+            </p>
+            <div class="mt-4 flex"> 
+             <a href="#"></a> <button class="secondary-btn text-sm font-semibold px-4 py-2 rounded-full ">
+            Button
+          </button></a> <a href="#" class="spruce underline ml-4 font-semibold pt-2 hover:no-underline">Button</a>
+              </div>
+          </div>
+          <img
+            src="../images/subpage1/doctor_shape.png"
+            alt="Brand Image 1"
+            class="rounded-xl object-cover hidden md:block"
+          />
+        </div>
+
+        <!-- Block 2 -->
+        <div
+          class="grid md:grid-cols-2 gap-10 items-center md:flex-row-reverse"
+        >
+          <img
+            src="../images/subpage1/doctor_with_tab.png"
+            alt="Brand Image 2"
+            class="rounded-xl object-cover"
+          />
+        <div>
+            <h2 class="text-4xl font-bold mb-4">
+              Feature vitae dignissim sit aenean sem nulla eget
+            </h2>
+            <p class="text-gray-600">
+              Description mattis tincidunt consectetur massa. Sit elementum at lacus nisl tincidunt semper amet. Egestas nisi ut felis amet nunc. Tincidunt cras consequat arcu gravida justo non. Et euismod tincidunt lorem odio bibendum diam nunc pellentesque massa. Massa et ullamcorper nulla.
+            </p>
+            <div class="mt-4 flex"> 
+             <a href="#"></a> <button class="secondary-btn text-sm font-semibold px-4 py-2 rounded-full ">
+            Button
+          </button></a> <a href="#" class="spruce underline ml-4 font-semibold pt-2 hover:no-underline">Button</a>
+              </div>
+          </div>
+        </div>
+
+        <!-- Block 3 -->
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+                   <img
+            src="../images/subpage1/smaling_face.png"
+            alt="Brand Image 3"
+            class="md:hidden rounded-xl object-cover mb-6"
+          />
+            <h2 class="text-4xl font-bold mb-4">
+              Feature vitae dignissim sit aenean sem nulla eget
+            </h2>
+            <p class="text-gray-600">
+              Description mattis tincidunt consectetur massa. Sit elementum at lacus nisl tincidunt semper amet. Egestas nisi ut felis amet nunc. Tincidunt cras consequat arcu gravida justo non. Et euismod tincidunt lorem odio bibendum diam nunc pellentesque massa. Massa et ullamcorper nulla.
+            </p>
+            <div class="mt-4 flex"> 
+             <a href="#"></a> <button class="secondary-btn text-sm font-semibold px-4 py-2 rounded-full ">
+            Button
+          </button></a> <a href="#" class="spruce underline ml-4 font-semibold pt-2 hover:no-underline">Button</a>
+              </div>
+          </div>
+          <img
+            src="../images/subpage1/smaling_face.png"
+            alt="Brand Image 3"
+            class="rounded-xl object-cover hidden md:block"
+          />
+        </div>
+      </div>
+      <!-- <div class="static hidden lg:block">
+        <div class="absolute right-0  " style="margin-top: 40px;">
+          <img src="../images/subpage1/dot_pattern.png" />
+        </div>
+      </div> -->
+    </section>
+
+    <!-- Section 3 -->
+     <section class="bg-spruce py-6">
+      <div class="max-w-6xl mx-auto px-6 text-center ">
+       <h3 class="text-white font-medium">Viverra lorem est mauris ultrices > </h3>
+      </div>
+
+     
+
+     </section>
+
+
+    <!-- Section 4 -->
+    <section class="py-16 md:py-16 ">
+
+       <div class="static lg:block">
+            
+            
+          </div>
+      <div class="bg-static  lg:block">
+        <div class="absolute right-0 mt-4"></div>
+        <div class="max-w-6xl mx-auto px-6 text-center">
+         
+          <div class="max-w-xl mx-auto">
+          
+          <h2 class="text-4xl font-bold mb-2">
+            Feature vitae dignissim sit aenean sem nulla eget
+          </h2>
+          <p class="text-xl text-[#577993] mb-16">
+            Feature vitae dignissim sit aenean sem nulla eget
+          </p>
+          </div>
+
+
+           </div>
+ 
+      <div class="max-w-6xl mx-auto px-6 text-center">
+          <div
+            class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center"
+          >
+            <!-- Outcome Card -->
+            <div
+              class="bg-white border border-gray-200 py-16 px-6 w-full shadow-sm rounded-xl"
+            >
+              <div class="text-3xl mb-4 justify-items-center">
+                <img
+                  src="../images/common/calender.svg"
+                  alt="Brand Image 3"
+                  class=" object-cover "
+                />
+              </div>
+              <h3 class="font-semibold text-lg mb-2">Feature vitae dignissim sit</h3>
+              <p class="text-gray-600 text-sm">
+                Vitae ante cras cum tempus id massa. Tortor nunc eget amet consequat. Vitae auctor sapien ut aliquet imperdiet urna.
+              </p>
+            </div>
+
+            <div
+              class="bg-white border border-gray-200 py-16 px-6 w-full   shadow-sm rounded-xl"
+            >
+              <div class="text-3xl mb-4 justify-items-center">
+                <img
+                  src="../images/common/manege.svg"
+                  alt="Brand Image 3"
+                  class="  object-cover"
+                />
+              </div>
+              <h3 class="font-semibold text-lg mb-2">Feature vitae dignissim sit</h3>
+              <p class="text-gray-600 text-sm">
+                Vitae ante cras cum tempus id massa. Tortor nunc eget amet consequat. Vitae auctor sapien ut aliquet imperdiet urna.
+              </p>
+            </div>
+
+            <div
+              class="bg-white border border-gray-200 py-16 px-6 w-full   shadow-sm rounded-xl"
+            >
+              <div class="text-3xl mb-4 justify-items-center">
+                <img
+                  src="../images/common/folder.svg "
+                  alt="Brand Image 3"
+                  class="  object-cover"
+                />
+              </div>
+              <h3 class="font-semibold text-lg mb-2">Feature vitae dignissim sit</h3>
+              <p class="text-gray-600 text-sm">
+                Vitae ante cras cum tempus id massa. Tortor nunc eget amet consequat. Vitae auctor sapien ut aliquet imperdiet urna.
+              </p>
+            </div>
+                <div
+              class="bg-white border border-gray-200 py-16 px-6 w-full   shadow-sm rounded-xl"
+            >
+              <div class="text-3xl mb-4 justify-items-center">
+                <img
+                  src="../images/common/folder.svg "
+                  alt="Brand Image 3"
+                  class="  object-cover"
+                />
+              </div>
+              <h3 class="font-semibold text-lg mb-2">Feature vitae dignissim sit</h3>
+              <p class="text-gray-600 text-sm">
+                Vitae ante cras cum tempus id massa. Tortor nunc eget amet consequat. Vitae auctor sapien ut aliquet imperdiet urna.
+              </p>
+            </div>
+                <div
+              class="bg-white border border-gray-200 py-16 px-6 w-full   shadow-sm rounded-xl"
+            >
+              <div class="text-3xl mb-4 justify-items-center">
+                <img
+                  src="../images/common/folder.svg "
+                  alt="Brand Image 3"
+                  class="  object-cover"
+                />
+              </div>
+              <h3 class="font-semibold text-lg mb-2">Feature vitae dignissim sit</h3>
+              <p class="text-gray-600 text-sm">
+                Vitae ante cras cum tempus id massa. Tortor nunc eget amet consequat. Vitae auctor sapien ut aliquet imperdiet urna.
+              </p>
+            </div>
+                <div
+              class="bg-white border border-gray-200 py-16 px-6 w-full   shadow-sm rounded-xl"
+            >
+              <div class="text-3xl mb-4 justify-items-center">
+                <img
+                  src="../images/common/folder.svg "
+                  alt="Brand Image 3"
+                  class="  object-cover"
+                />
+              </div>
+              <h3 class="font-semibold text-lg mb-2">Feature vitae dignissim sit</h3>
+              <p class="text-gray-600 text-sm">
+                Vitae ante cras cum tempus id massa. Tortor nunc eget amet consequat. Vitae auctor sapien ut aliquet imperdiet urna.
+              </p>
+            </div>
+          </div>
+      </div>
+          </section>
+
+          
+ <section class="py-16 md:py-16 ">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+
+     <div class="grid md:grid-cols-2 gap-10 items-center md:flex-row-reverse  ">
+          <img src="../images/subpage1/doctor_with_tab.png" alt="Brand Image 2" class="rounded-xl object-cover">
+        <div>
+            <h2 class="text-4xl font-bold mb-4 text-left">
+              Feature vitae dignissim sit aenean sem nulla eget
+            </h2>
+            <p class="text-gray-600 text-left">
+              Description mattis tincidunt consectetur massa. Sit elementum at lacus nisl tincidunt semper amet. Egestas nisi ut felis amet nunc. Tincidunt cras consequat arcu gravida justo non. Et euismod tincidunt lorem odio bibendum diam nunc pellentesque massa. Massa et ullamcorper nulla.
+            </p>
+            <div class="mt-4 flex"> 
+             <a href="#"></a> <button class="secondary-btn text-sm font-semibold px-4 py-2 rounded-full ">
+            Button
+          </button> <a href="#" class="spruce underline ml-4 font-semibold pt-2 hover:no-underline">Button</a>
+              </div>
+          </div>
+        </div>
+        </div>
+      </section>
+
+        <!--slider start-->
+         <section class="py-16 md:py-16 ">
+       
+
+        <div class="max-w-6xl mx-auto px-6 text-center ">
+        <div id="testimonial-slider" class="relative rounded-2xl py-8 px-2 lg:py-12 lg:px-24 overflow-hidden bg-white">
+     
+        <div class="slides relative">
+               <div class="slide flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+              <div class="relative flex-shrink-0">
+                <img src="../images/test_1.png" alt="Person 1" class="w-32 h-32 rounded-full object-cover">
+              </div>
+              <div>
+                <h4 class="text-xl font-semibold mb-4 black-90">
+                  “Arcu rhoncus amet tellus sit ipsum dictum sem. Faucibus
+                  imperdiet velit tortor scelerisque quam velit et. Magna
+                  pulvinar justo condimentum.”
+                </h4>
+                <h3 class="font-bold text-gray-900">Serena Jones</h3>
+                <p class="text-gray-500">CEO, Company Name</p>
+                <p class="py-8 text-base"><a href="#" class="underline">Read Case Study</a></p>
+              </div>
+            </div>
+            <div class="slide absolute inset-0 flex flex-col md:flex-row items-center gap-6 text-center md:text-left active">
+              <div class="relative flex-shrink-0">
+                <img src="../images/test_1.png" alt="Person 3" class="w-32 h-32 rounded-full object-cover">
+              </div>
+              <div class=" ">
+               <h4 class="text-xl font-semibold mb-4 black-90">
+                  “Donec accumsan, massa sed mattis placerat, odio quam
+                  fermentum metus, nec tincidunt elit ex ac augue.”
+                </h4>
+                <h3 class="font-bold text-gray-900">Ava Smith</h3>
+                <p class="text-gray-500">Founder, DesignWave</p>
+                <p class="py-8 text-base"><a href="#" class="underline">Read Case Study</a></p>
+              </div>
+            </div>
+           <div class="slide absolute inset-0 flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+              <div class="relative flex-shrink-0">
+                <img src="../images/test_1.png" alt="Person 2" class="w-32 h-32 rounded-full object-cover">
+              </div>
+              <div>
+                <h4 class="text-xl font-semibold mb-4 black-90">
+                  “Suspendisse potenti. Curabitur convallis lectus non tortor
+                  malesuada, vitae consequat urna pharetra.”
+                </h4>
+                <h3 class="font-bold text-gray-900">Michael Brown</h3>
+                <p class="text-gray-500">CTO, Techify</p>
+                <p class="py-8 text-base"><a href="#" class="underline">Read Case Study</a></p>
+              </div>
+            </div>
+        </div>
+
+             <button id="prev" class="absolute hidden md:block left-2 top-1/2 -translate-y-1/2 border border-plum plum px-4 py-2 rounded-full hover:bg-pink-600 hover:text-white transition">
+            ❮
+          </button>
+          <button id="next" class="absolute hidden md:block right-2 top-1/2 -translate-y-1/2 border border-plum plum px-4 py-2 rounded-full hover:bg-pink-600 hover:text-white transition">
+            ❯
+          </button>
+
+        <div class="flex justify-center mt-6 space-x-2">
+          <div class="dot w-3 h-3 rounded-full bg-gray-400"></div>
+          <div class="dot w-3 h-3 rounded-full bg-plum"></div>
+          <div class="dot w-3 h-3 rounded-full bg-gray-400"></div>
+        </div>
+       
+    </div></div>
+    </section>
+
+
+        <!-- Slider end -->
+          <section class="py-16 md:py-16 ">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+     <div class="grid md:grid-cols-2 gap-10 items-center md:flex-row-reverse ">
+          <img src="../images/subpage1/doctor_with_tab.png" alt="Brand Image 2" class="rounded-xl object-cover">
+        <div>
+            <h2 class="text-4xl font-bold mb-4 text-left">
+              Feature vitae dignissim sit aenean sem nulla eget
+            </h2>
+            <p class="text-gray-600 text-left">
+              Description mattis tincidunt consectetur massa. Sit elementum at lacus nisl tincidunt semper amet. Egestas nisi ut felis amet nunc. Tincidunt cras consequat arcu gravida justo non. Et euismod tincidunt lorem odio bibendum diam nunc pellentesque massa. Massa et ullamcorper nulla.
+            </p>
+            <div class="mt-4 flex"> 
+             <a href="#"></a> <button class="secondary-btn text-sm font-semibold px-4 py-2 rounded-full ">
+            Button
+          </button> <a href="#" class="spruce underline ml-4 font-semibold pt-2 hover:no-underline">Button</a>
+              </div>
+          </div>
+        </div>
+
+
+        <!--image end -->
+      
+      </div>
+    </section>
+
+    <!--logo section-->
+    <!-- Brand Approach Section -->
+     
+
+    <!-- mudaki Section -->
+    
+    <!-- spacer section -->
+  
+
+
+ 
+
+    <!-- mudaki Section -->
+ 
+
+    <!-- CTA Section -->
+    <section class="bg-pearl py-16 hidden sm:block relative overflow-hidden">
+       <div class="static hidden sm:block">
+            
+               
+
+          </div>
+      <div class="static hidden sm:block">
+        <!-- <div class="absolute right-0 -top-20"><img src="../images/subpage1/dot_pattern_blue.png" /></div>
+        <div class="absolute left-0 bottom-0"><img src="../images/subpage1/half_cercal_pattern.png" /></div> -->
+
+        <div
+          class="max-w-xl mx-auto grid md:grid-cols-1 gap-8 items-center px-6"
+        >
+          <h2 class="text-4xl font-bold mb-2 spruce text-center">
+          CTA Fringilla purus nulla magna blandit donec eu sed ut
+          </h2>
+          <div class="text-center">
+            <a href="#"><button class="primary-btn text-sm font-semibold px-4 py-2 rounded-full ">
+                  Primary CTA
+                </button></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class=" py-6 border-t border-gray-200 text-center text-sm text-gray-500"
+    >
+     <div class="static hidden lg:block">
+        
+          </div>
+      <div class="max-w-6xl mx-auto px-6 text-center">
+
+          <div
+          class="grid md:grid-cols-5 gap-10 md:flex-row-reverse border-b border-gray-200 py-8" >
+
+        <div class="text-left col-span-3 ">
+           <p class="font-semibold text-xl">Join our newsletter</p>
+           <p>  Sapien eget aliquam neque porttitor sem</p>
+             </div>
+            <!--subscription form -->
+            <div class="text-left col-span-2">
+              
+              <form id="subscribeForm" class=" ">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  class="border border-onyx px-4 py-2 mr-2 w-64 focus:outline-none"
+                  required
+                />
+
+                   <a href="#"><button class="primary-btn text-sm font-semibold px-4 py-2 rounded-full ">
+                  Subscribe
+                </button></a>
+              
+                <div class="pt-2">
+                  By subscribing you agree to with our <span class="font-medium underline"><a href="#">Privacy Policy</a></span> and
+                  provide consent to receive updates from our company.
+                </div>
+
+                <p id="subscribeMsg" class="hidden text-green-500 mt-2">
+                  Thank you for subscribing!
+                </p>
+              </form>
+            </div>
+         
+      </div>
+        <div
+          class="grid sm:grid-cols-2 md:grid-cols-6 gap-10 items-center md:flex-row-reverse py-12"
+        >
+          
+          <div class="text-left text-sm">
+            <span class="font-semibold text-base">Category one</span>
+            <a href="page1.html" class="hover:underline" ><p class="my-2">Link 1</p></a>
+            <a href="page2.html" class="hover:underline" ><p class="mb-2 ">Link 2</p></a>
+            <a href="page3.html" class="hover:underline" ><p class="mb-2 ">Link 3</p></a>
+            <a href="page4.html" class="hover:underline" ><p class="mb-2 ">Link 4</p></a>
+            <a href="page5.html" class="hover:underline" ><p class="mb-2 ">Link 5</p></a>
+          </div>
+          <div class="text-left text-sm">
+            <span class="font-semibold text-base">Category two</span>
+            <a href="page6.html" class="hover:underline" ><p class="my-2">Link 6</p></a>
+            <a href="page7.html" class="hover:underline" ><p class="mb-2">Link 7</p></a>
+            <a href="page8.html" class="hover:underline" ><p class="mb-2">Link 8</p></a>
+            <a href="page9.html" class="hover:underline" ><p class="mb-2">Link 9</p></a>
+            <a href="page10.html" class="hover:underline" ><p class="mb-2">Link 10</p></a>
+          </div>
+          <div class="text-left text-sm">
+            <span class="font-semibold text-base">Category three</span>
+            <a href="page11.html" class="hover:underline" ><p class="my-2">Link 11</p></a>
+            <a href="page12.html" class="hover:underline" ><p class="mb-2">Link 12</p></a>
+            <a href="#" class="hover:underline" ><p class="mb-2">Link 13</p></a>
+            <a href="#" class="hover:underline" ><p class="mb-2">Link 14</p></a>
+            <a href="#" class="hover:underline" ><p class="mb-2">Link 15</p></a>
+          </div>
+         <div class="text-left text-sm">
+            <span class="font-semibold text-base">Category four</span>
+            <a href="#" class="hover:underline" ><p class="my-2">Link 16</p></a>
+            <a href="#" class="hover:underline" ><p class="mb-2">Link 17</p></a>
+            <a href="#" class="hover:underline" ><p class="mb-2">Link 18</p></a>
+            <a href="#" class="hover:underline" ><p class="mb-2">Link 19</p></a>
+            <a href="#" class="hover:underline" ><p class="mb-2">Link 20</p></a>
+          </div>
+         <div class="text-left text-sm">
+            <span class="font-semibold text-base">Category five</span>
+            <a href="#" class="hover:underline" ><p class="my-2">Link 21</p></a>
+            <a href="#" class="hover:underline" ><p class="mb-2">Link 22</p></a>
+            <a href="#" class="hover:underline" ><p class="mb-2">Link 23</p></a>
+            <a href="#" class="hover:underline" ><p class="mb-2">Link 24</p></a>
+            <a href="#" class="hover:underline" ><p class="mb-2">Link 25</p></a>
+          </div>
+          <div class="text-left text-sm">
+            <span class="font-semibold text-base">Category six</span>
+            <a href="#" class="hover:underline" ><p class="my-2">Link 26</p></a>
+            <a href="#" class="hover:underline" ><p class="mb-2">Link 27</p></a>
+            <a href="#" class="hover:underline" ><p class="mb-2">Link 28</p></a>
+            <a href="#" class="hover:underline" ><p class="mb-2">Link 29</p></a>
+            <a href="#" class="hover:underline" ><p class="mb-2">Link 30</p></a>
+          </div>
+        </div>
+
+        <div
+          class="max-w-7xl  mx-auto flex items-center justify-between pt-4 border-t border-gray-200 "
+        >
+          <div class="flex items-center space-x-2">
+            © 2025 Alderr. All rights reserved.
+          </div>
+
+          <nav
+            class="hidden md:flex items-center space-x-6 text-sm font-medium"
+          >
+            <a href="#" class="alink underline hover:no-underline">Privacy Policy</a>
+            <a href="#" class="alink underline hover:no-underline">Terms of Service</a>
+          </nav>
+          <div class="flex items-center space-x-2">
+          <button
+          class="text-sm font-semibold px-2 py-2 rounded-full hover:bg-gray-100" >
+           <img src="../images/social_media/fb.svg" width="24px"> 
+          </button>
+
+          <button
+          class="text-sm font-semibold px-2 py-2 rounded-full hover:bg-gray-100" >
+          <img src="../images/social_media/instagram.svg" width="24px"> 
+          </button>
+          <button
+          class="text-sm font-semibold px-2 py-2 rounded-full hover:bg-gray-100" >
+          <img src="../images/social_media/linkedin.svg" width="24px"> 
+          </button>
+          <button
+          class="text-sm font-semibold px-2 py-2 rounded-full hover:bg-gray-100" >
+          <img src="../images/social_media/x.svg" width="24px"> 
+          </button>
+          <button
+            class="text-sm font-semibold px-2 py-2 rounded-full hover:bg-gray-100" >
+          <img src="../images/social_media/youtube.svg" width="24px"> 
+          </button>
+        </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/slider.js"></script>
+    <script src="js/mmenu.js"></script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+function loadComponent(id, file) {
+    const placeholder = document.getElementById(id);
+    const customLogo = placeholder.getAttribute('data-logo');
+
+    fetch(file)
+        .then(response => response.text())
+        .then(data => {
+            placeholder.innerHTML = data;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+loadComponent('footer-placeholder', 'footer.html');loadComponent('header-placeholder', 'header.html');}    });        }            link.classList.add('active');
+n        if (linkPath === currentPath) {        const linkPath = link.getAttribute('href');        // Get the link's filename (e.g., "about.html")    links.forEach(link => {    const links = container.querySelectorAll('nav a');    // Find all links inside the header    if (currentPath === "") currentPath = "index.html";    let currentPath = window.location.pathname.split("/").pop();    // If the path is empty or "/", default to "index.html"    // Get the current page name (e.g., "about.html")function highlightActiveLink(container) {}        .catch(error => console.error('Error:', error));        })            highlightActiveLink(placeholder);            // --- 2. Active Link Logic ---            }                if (logoImg) logoImg.src = customLogo;                const logoImg = placeholder.querySelector('#header-logo');            if (customLogo) {n            // --- 1. Logo Swap Logic ---

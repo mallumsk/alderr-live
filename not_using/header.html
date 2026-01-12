@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alderr — Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .menu-panel {
+        transition: transform 0.18s ease, opacity 0.18s ease;
+        transform-origin: top;
+      }
+      .menu-panel.closed {
+        opacity: 0;
+        transform: translateY(-6px) scale(0.98);
+        pointer-events: none;
+      }
+      .menu-panel.open {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+      }
+      .chev {
+        transition: transform 0.18s ease;
+      }
+      .rotate-180 {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-800 font-sans">
+    <header class="w-full bg-white shadow-sm">
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
+      >
+        <div class="flex items-center space-x-6">
+          <a href="#" class="flex items-center space-x-3">
+            <img
+              src="../images/subpage1/header_alderr_logo.svg"
+              alt="Alderr"
+              class="h-8"
+            />
+            <span class="text-lg font-semibold spruce"
+              >a<span class="font-bold">P</span></span
+            >
+          </a>
+        </div>
+
+        <nav class="hidden lg:flex items-center space-x-6">
+          <!-- <div class="relative" id="nav-alignment"> -->
+          <div class=" " id="nav-alignment">
+            <button
+              id="alignment-btn"
+              class="flex items-center space-x-2 text-gray-800 hover:text-teal-700"
+            >
+              <span>Alignment Platforms</span>
+              <svg
+                class="h-4 w-4 chev"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+
+            <!-- Megamenu panel -->
+
+            <div
+              id="alignment-panel"
+              class="absolute left-0 mt-3 w-full bg-white border shadow-lg rounded-lg menu-panel closed"
+            >
+              <div class="p-6 max-w-7xl mx-auto">
+                <div class="grid grid-cols-12 gap-2">
+                  <!-- Left column: product list (tab buttons) -->
+                  <div class="col-span-3">
+                    <ul class="space-y-6">
+                      <li>
+                        <button
+                          data-tab="pane-activPractice"
+                          class="tab-btn w-full text-left flex items-start space-x-3"
+                        >
+                          <img
+                            src="../images/menu/willow.svg"
+                            class="h-5"
+                            alt="willow"
+                          />
+                          <div>
+                            <div class="spruce hover:text-[#850a56] text-base">
+                              activ<span class="font-bold">Practice</span>
+                            </div>
+                            <div class="text-xs text-gray-500">
+                              Billing Made Transactional, Then Free
+                            </div>
+                          </div>
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          data-tab="pane-activPatient"
+                          class="tab-btn w-full text-left flex items-start space-x-3"
+                        >
+                          <img
+                            src="../images/menu/abacus.svg"
+                            class="h-5"
+                            alt="abacus"
+                          />
+                          <div>
+                            <div class="spruce hover:text-[#850a56] text-base">
+                              activ<span class="font-bold">Patient</span>
+                            </div>
+                            <div class="text-xs text-gray-500">
+                              Financial Clarity for Every Family - $10/Month
+                            </div>
+                          </div>
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          data-tab="pane-activWorkflow"
+                          class="tab-btn w-full text-left flex items-start space-x-3"
+                        >
+                          <img
+                            src="../images/menu/sdocs.svg"
+                            class="h-5"
+                            alt="sdocs"
+                          />
+                          <div>
+                            <div class="spruce hover:text-[#850a56] text-base">
+                              activ<span class="font-bold">Workflow</span>
+                            </div>
+                            <div class="text-xs text-gray-500">
+                              The coordination layer behind every transaction,
+                              every partner, and every promise. -join waitllist
+                            </div>
+                          </div>
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          data-tab="pane-activBenefits"
+                          class="tab-btn w-full text-left flex items-start space-x-3"
+                        >
+                          <img
+                            src="../images/menu/willow.svg"
+                            class="h-5"
+                            alt="benefits"
+                          />
+                          <div>
+                            <div class="spruce hover:text-[#850a56] text-base">
+                              activ<span class="font-bold">Benefits</span>
+                            </div>
+                            <div class="text-xs text-gray-500">
+                              Billing Made Transactional, Then Free
+                            </div>
+                          </div>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Middle: 4 columns -->
+                  <div
+                    class="col-span-9 border-l border-dashed border-gray-200 pl-2"
+                  >
+                    <div id="pane-activPractice" class="tab-pane">
+                      <div class="grid grid-cols-4 gap-6">
+                        <div>
+                          <h6 class="text-xs uppercase text-gray-500 mb-3">
+                            Features
+                          </h6>
+                          <ul class="space-y-2 text-sm text-gray-700">
+                            <li>
+                              <a
+                                href="/activpractice/transactional-billing.html"
+                                class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                                >Transactional Billing, Rebuilt</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                href="/activpractice/free-billing.html"
+                                class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                                >Free Billing is Possible</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 class="text-xs uppercase text-gray-500 mb-3">
+                            For
+                          </h6>
+                          <ul class="space-y-2 text-sm text-gray-700">
+                            <li>
+                              <a href="#" class="hover:text-teal-700">111</a>
+                            </li>
+                            <li>
+                              <a href="#" class="hover:text-teal-700">222</a>
+                            </li>
+                            <li>
+                              <a href="#" class="hover:text-teal-700">333</a>
+                            </li>
+                            <li>
+                              <a href="#" class="hover:text-teal-700">444</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 class="text-xs uppercase text-gray-500 mb-3">
+                            Pricing
+                          </h6>
+                          <ul class="space-y-2 text-sm text-gray-700">
+                            <li>
+                              <a href="#" class="hover:text-teal-700"
+                                >Transactional First/Then Free</a
+                              >
+                            </li>
+                            <li>
+                              <a href="#" class="hover:text-teal-700"
+                                >Savings Calculator</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 class="text-xs uppercase text-gray-500 mb-3">
+                            Featured Article
+                          </h6>
+                          <img
+                            src="../images/subpage1/slider_doctor2.PNG"
+                            alt="featured"
+                            class="w-full h-28 object-cover rounded-lg mb-3"
+                          />
+                          <h5 class="font-semibold text-gray-800">
+                            Willow in Action: Simplifying Healthcare
+                          </h5>
+                          <p class="text-sm text-gray-500">
+                            How Willow streamlines practice workflows.
+                          </p>
+                          <a
+                            href="#"
+                            class="text-sm text-teal-700 inline-block mt-2"
+                            >Read more →</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <!--pane-activPractice end-->
+
+                    <!--pane-pane-activPatient-->
+                    <div id="pane-activPatient" class="tab-pane">
+                      <div class="grid grid-cols-4 gap-6">
+                        <div>
+                          <h6 class="text-xs uppercase text-gray-500 mb-3">
+                            Features
+                          </h6>
+                          <ul class="space-y-2 text-sm text-gray-700">
+                            <li>
+                              <a
+                                href="/activpatient/how-it-works.html"
+                                class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                                >How It Works</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 class="text-xs uppercase text-gray-500 mb-3">
+                            For
+                          </h6>
+                          <ul class="space-y-2 text-sm text-gray-700">
+                            <li>
+                              <a href="#" class="hover:text-teal-700">111</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 class="text-xs uppercase text-gray-500 mb-3">
+                            Pricing
+                          </h6>
+                          <ul class="space-y-2 text-sm text-gray-700">
+                            <li>
+                              <a href="#" class="hover:text-teal-700"
+                                >Transactional First/Then Free</a
+                              >
+                            </li>
+                            <li>
+                              <a href="#" class="hover:text-teal-700"
+                                >Savings Calculator</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 class="text-xs uppercase text-gray-500 mb-3">
+                            Featured Article
+                          </h6>
+                          <img
+                            src="../images/subpage1/slider_doctor.PNG"
+                            alt="featured"
+                            class="w-full h-28 object-cover rounded-lg mb-3"
+                          />
+                          <h5 class="font-semibold text-gray-800">
+                            Willow in Action: Simplifying Healthcare
+                          </h5>
+                          <p class="text-sm text-gray-500">
+                            How Willow streamlines practice workflows.
+                          </p>
+                          <a
+                            href="#"
+                            class="text-sm text-teal-700 inline-block mt-2"
+                            >Read more →</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!--pane-pane-activPatient end-->
+                    <!--pane-pane-activWorkflow-->
+                    <div id="pane-activWorkflow" class="tab-pane">
+                      <div class="grid grid-cols-4 gap-6">
+                        <div>
+                          <h6 class="text-xs uppercase text-gray-500 mb-3">
+                            Features
+                          </h6>
+                          <ul class="space-y-2 text-sm text-gray-700">
+                            <li>
+                              <a
+                                href="/activwork/workflow.html"
+                                class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                                >Workflow</a
+                              >
+                            </li>
+
+                            <li>
+                              <a
+                                href="/activwork/self-auditing.html"
+                                class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                                >Self-Auditing QA</a
+                              >
+                            </li>
+
+                            <li>
+                              <a
+                                href="/activwork/communication-hub.html"
+                                class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                                >Communication Hub</a
+                              >
+                            </li>
+
+                            <li>
+                              <a
+                                href="/activwork/proof-in-numbers.html"
+                                class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                                >Proof in Numbers</a
+                              >
+                            </li>
+
+                            <li>
+                              <a
+                                href="/activwork/prioritization-logic.html"
+                                class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                                >Prioritization Logic</a
+                              >
+                            </li>
+
+                            <li>
+                              <a
+                                href="/activwork/multi-org-architecture.html"
+                                class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                                >Multi-Org Architecture</a
+                              >
+                            </li>
+
+                            <li>
+                              <a
+                                href="/activwork/data-inflows.html"
+                                class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                                >Data Inflows</a
+                              >
+                            </li>
+
+                            <li>
+                              <a
+                                href="/activwork/the-normal-stuff.html"
+                                class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                                >The Normal Stuff</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 class="text-xs uppercase text-gray-500 mb-3">
+                            For
+                          </h6>
+                          <ul class="space-y-2 text-sm text-gray-700">
+                            <li>
+                              <a href="#" class="hover:text-teal-700">111</a>
+                            </li>
+                            <li>
+                              <a href="#" class="hover:text-teal-700">222</a>
+                            </li>
+                            <li>
+                              <a href="#" class="hover:text-teal-700">333</a>
+                            </li>
+                            <li>
+                              <a href="#" class="hover:text-teal-700">444</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 class="text-xs uppercase text-gray-500 mb-3">
+                            Pricing
+                          </h6>
+                          <ul class="space-y-2 text-sm text-gray-700">
+                            <li>
+                              <a href="#" class="hover:text-teal-700"
+                                >Transactional First/Then Free</a
+                              >
+                            </li>
+                            <li>
+                              <a href="#" class="hover:text-teal-700"
+                                >Savings Calculator</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 class="text-xs uppercase text-gray-500 mb-3">
+                            Featured Article
+                          </h6>
+                          <img
+                            src="../images/subpage1/smaling_face.PNG"
+                            alt="featured"
+                            class="w-full h-28 object-cover rounded-lg mb-3"
+                          />
+                          <h5 class="font-semibold text-gray-800">
+                            Willow in Action: Simplifying Healthcare
+                          </h5>
+                          <p class="text-sm text-gray-500">
+                            How Willow streamlines practice workflows.
+                          </p>
+                          <a
+                            href="#"
+                            class="text-sm text-teal-700 inline-block mt-2"
+                            >Read more →</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!--pane-pane-activWorkflow end-->
+                    <!--pane-pane-activBenefits-->
+                    <div id="pane-activBenefits" class="tab-pane">
+                      <div class="grid grid-cols-4 gap-6">
+                        <div>
+                          <h6 class="text-xs uppercase text-gray-500 mb-3">
+                            Features
+                          </h6>
+                          <ul class="space-y-2 text-sm text-gray-700">
+                            <li>
+                              <a
+                                href="/activpractice/transactional-billing.html"
+                                class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                                >Transactional Billing, Rebuilt</a
+                              >
+                            </li>
+                            <li>
+                              <a href="#" class="hover:text-teal-700">000</a>
+                            </li>
+                            <li>
+                              <a href="#" class="hover:text-teal-700">111</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 class="text-xs uppercase text-gray-500 mb-3">
+                            For
+                          </h6>
+                          <ul class="space-y-2 text-sm text-gray-700">
+                            <li>
+                              <a href="#" class="hover:text-teal-700">111</a>
+                            </li>
+                            <li>
+                              <a href="#" class="hover:text-teal-700">222</a>
+                            </li>
+                            <li>
+                              <a href="#" class="hover:text-teal-700">333</a>
+                            </li>
+                            <li>
+                              <a href="#" class="hover:text-teal-700">444</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 class="text-xs uppercase text-gray-500 mb-3">
+                            Pricing
+                          </h6>
+                          <ul class="space-y-2 text-sm text-gray-700">
+                            <li>
+                              <a href="#" class="hover:text-teal-700"
+                                >Transactional First/Then Free</a
+                              >
+                            </li>
+                            <li>
+                              <a href="#" class="hover:text-teal-700"
+                                >Savings Calculator</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h6 class="text-xs uppercase text-gray-500 mb-3">
+                            Featured Article
+                          </h6>
+                          <img
+                            src="../images/subpage1/slider_doctor2.PNG"
+                            alt="featured"
+                            class="w-full h-28 object-cover rounded-lg mb-3"
+                          />
+                          <h5 class="font-semibold text-gray-800">
+                            Willow in Action: Simplifying Healthcare
+                          </h5>
+                          <p class="text-sm text-gray-500">
+                            How Willow streamlines practice workflows.
+                          </p>
+                          <a
+                            href="#"
+                            class="text-sm text-teal-700 inline-block mt-2"
+                            >Read more →</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!--pane-pane-activBenefits end-->
+                  </div>
+
+                  <!-- Right: Featured Article / content area (tab panes) -->
+                  <!-- <div class="col-span-3 border-l pl-6">
+                    <div id="pane-activPractice" class="tab-pane">
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">
+                        Featured Article
+                      </h6>
+                      <img
+                        src="images/subpage1/slider_doctor2.PNG"
+                        alt="featured"
+                        class="w-full h-28 object-cover rounded-lg mb-3"
+                      />
+                      <h5 class="font-semibold text-gray-800">
+                        Willow in Action: Simplifying Healthcare
+                      </h5>
+                      <p class="text-sm text-gray-500">
+                        How Willow streamlines practice workflows.
+                      </p>
+                      <a
+                        href="#"
+                        class="text-sm text-teal-700 inline-block mt-2"
+                        >Read more →</a
+                      >
+                    </div>
+                    <div id="pane-activPatient" class="tab-pane hidden">
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">
+                        Patient Tools
+                      </h6>
+                      <p class="text-sm text-gray-700">
+                        Information about activPatient and patient features.
+                      </p>
+                    </div>
+                    <div id="pane-activWorkflow" class="tab-pane hidden">
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">
+                        Workflow
+                      </h6>
+                      <p class="text-sm text-gray-700">
+                        How activWorkflow helps coordinate partners and tasks.
+                      </p>
+                    </div>
+                    <div id="pane-activBenefits" class="tab-pane hidden">
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">
+                        Benefits
+                      </h6>
+                      <p class="text-sm text-gray-700">
+                        Overview of benefits and plan administration.
+                      </p>
+                    </div>
+                  </div>-->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <button
+              class="px-2 py-1 text-gray-700 hover:text-teal-700 dropdown-btn flex items-center space-x-2"
+              data-dropdown="dd-why"
+            >
+              <span>Why Alderr</span>
+              <svg
+                class="h-4 w-4 chev"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div
+              id="dd-why"
+              class="absolute mt-2 bg-white border rounded shadow-md py-2 w-48 menu-panel closed"
+            >
+              <a
+                href="/why-alderr.html"
+                class="block px-4 py-2 text-sm hover:bg-gray-50"
+                >Our Story</a
+              >
+              <a
+                href="/why-alderr.html"
+                class="block px-4 py-2 text-sm hover:bg-gray-50"
+                >Team</a
+              >
+            </div>
+          </div>
+
+          <div class="relative">
+            <button
+              class="px-2 py-1 text-gray-700 hover:text-teal-700 dropdown-btn flex items-center space-x-2"
+              data-dropdown="dd-who"
+            >
+              <span>Who We Help</span>
+              <svg
+                class="h-4 w-4 chev"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div
+              id="dd-who"
+              class="absolute mt-2 bg-white border rounded shadow-md py-2 w-48 menu-panel closed"
+            >
+              <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50"
+                >For Practices</a
+              >
+              <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50"
+                >For Patients</a
+              >
+            </div>
+          </div>
+
+          <div class="relative">
+            <button
+              class="px-2 py-1 text-gray-700 hover:text-teal-700 dropdown-btn flex items-center space-x-2"
+              data-dropdown="dd-res"
+            >
+              <span>Resources</span>
+              <svg
+                class="h-4 w-4 chev"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div
+              id="dd-res"
+              class="absolute mt-2 bg-white border rounded shadow-md py-2 w-48 menu-panel closed"
+            >
+              <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50"
+                >Docs</a
+              >
+              <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50"
+                >Support</a
+              >
+            </div>
+          </div>
+
+          <div class="relative">
+            <button
+              class="px-2 py-1 text-gray-700 hover:text-teal-700 dropdown-btn flex items-center space-x-2"
+              data-dropdown="dd-co"
+            >
+              <span>Company/Investors</span>
+              <svg
+                class="h-4 w-4 chev"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div
+              id="dd-co"
+              class="absolute mt-2 bg-white border rounded shadow-md py-2 w-48 menu-panel closed"
+            >
+              <a
+                href="/company-investors.html"
+                class="block px-4 py-2 text-sm hover:bg-gray-50"
+                >Investors</a
+              >
+              <a
+                href="/security-compliance.html"
+                class="block px-4 py-2 text-sm hover:bg-gray-50"
+                >Press</a
+              >
+            </div>
+          </div>
+        </nav>
+
+        <div class="flex items-center space-x-4">
+          <button id="mobile-menu-btn" class="lg:hidden bg-transparent p-2">
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+          <button
+            class="hidden lg:inline-block bg-[#850a56] text-white px-4 py-2 rounded-full"
+          >
+            Get Started
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile nav -->
+    <div id="mobile-nav" class="lg:hidden hidden bg-white border-b">
+      <div class="max-w-7xl mx-auto px-6 py-4">
+        <ul class="space-y-3">
+          <li>
+            <button
+              class="w-full flex justify-between items-center"
+              data-mobile-toggle="alignment"
+            >
+              <span>Alignment Platforms</span>
+              <svg
+                class="h-4 w-4 chev"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div id="mobile-alignment" class="mt-2 hidden">
+              <ul class="flex space-x-4 text-sm overflow-x-auto -mx-2 px-2">
+                <li>
+                  <button
+                    class="mobile-tab-btn whitespace-nowrap px-3 py-2 rounded text-left"
+                    data-tab="mobile-pane-activPractice"
+                  >
+                    activPractice
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="mobile-tab-btn whitespace-nowrap px-3 py-2 rounded text-left"
+                    data-tab="mobile-pane-activPatient"
+                  >
+                    activPatient
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="mobile-tab-btn whitespace-nowrap px-3 py-2 rounded text-left"
+                    data-tab="mobile-pane-activWorkflow"
+                  >
+                    activWorkflow
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="mobile-tab-btn whitespace-nowrap px-3 py-2 rounded text-left"
+                    data-tab="mobile-pane-activBenefits"
+                  >
+                    activBenefits
+                  </button>
+                </li>
+              </ul>
+              <div id="mobile-alignment-content" class="mt-3">
+                <div id="mobile-pane-activPractice" class="">
+                  <div class="bg-warm-grey grid grid-cols-1 gap-6 p-4">
+                    <div>
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">
+                        Features
+                      </h6>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                        <li>
+                          <a
+                            href="/activpractice/transactional-billing.html"
+                            class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                            >Transactional Billing, Rebuilt</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="/activpractice/free-billing.html"
+                            class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                            >Free Billing is Possible</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="border-t border-dashed border-gray-400 pt-2">
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">For</h6>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                        <li>
+                          <a href="#" class="hover:text-teal-700">111</a>
+                        </li>
+                        <li>
+                          <a href="#" class="hover:text-teal-700">222</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="border-t border-dashed border-gray-400 pt-2">
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">
+                        Pricing
+                      </h6>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                        <li>
+                          <a href="#" class="hover:text-teal-700"
+                            >Transactional First/Then Free</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="hover:text-teal-700"
+                            >Savings Calculator</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="border-t border-dashed border-gray-400 pt-2">
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">
+                        Featured Article
+                      </h6>
+                      <img
+                        src="../images/subpage1/slider_doctor2.PNG"
+                        alt="featured"
+                        class="w-full h-28 object-cover rounded-lg mb-3"
+                      />
+                      <h5 class="font-semibold text-gray-800">
+                        Willow in Action: Simplifying Healthcare
+                      </h5>
+                      <p class="text-sm text-gray-500">
+                        How Willow streamlines practice workflows.
+                      </p>
+                      <a
+                        href="#"
+                        class="text-sm text-teal-700 inline-block mt-2"
+                        >Read more →</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div id="mobile-pane-activPatient" class="hidden">
+                  <div class="bg-warm-grey grid grid-cols-1 gap-6 p-4">
+                    <div>
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">
+                        Features
+                      </h6>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                        <li>
+                          <a
+                            href="/activpatient/how-it-works.html"
+                            class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                            >How It Works</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="border-t border-dashed border-gray-400 pt-2">
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">For</h6>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                        <li>
+                          <a href="#" class="hover:text-teal-700">111</a>
+                        </li>
+                        <li>
+                          <a href="#" class="hover:text-teal-700">222</a>
+                        </li>
+                        <li>
+                          <a href="#" class="hover:text-teal-700">333</a>
+                        </li>
+                        <li>
+                          <a href="#" class="hover:text-teal-700">444</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="border-t border-dashed border-gray-400 pt-2">
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">
+                        Pricing
+                      </h6>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                        <li>
+                          <a href="#" class="hover:text-teal-700"
+                            >Transactional First/Then Free</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="hover:text-teal-700"
+                            >Savings Calculator</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="border-t border-dashed border-gray-400 pt-2">
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">
+                        Featured Article
+                      </h6>
+                      <img
+                        src="../images/subpage1/slider_doctor.PNG"
+                        alt="featured"
+                        class="w-full h-28 object-cover rounded-lg mb-3"
+                      />
+                      <h5 class="font-semibold text-gray-800">
+                        Willow in Action: Simplifying Healthcare
+                      </h5>
+                      <p class="text-sm text-gray-500">
+                        How Willow streamlines practice workflows.
+                      </p>
+                      <a
+                        href="#"
+                        class="text-sm text-teal-700 inline-block mt-2"
+                        >Read more →</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div id="mobile-pane-activWorkflow" class="hidden">
+                  <div class="bg-warm-grey grid grid-cols-1 gap-6 p-4">
+                    <div>
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">
+                        Features
+                      </h6>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                        <li>
+                          <a
+                            href="/activwork/workflow.html"
+                            class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                            >Workflow</a
+                          >
+                        </li>
+
+                        <li>
+                          <a
+                            href="/activwork/self-auditing.html"
+                            class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                            >Self-Auditing QA</a
+                          >
+                        </li>
+
+                        <li>
+                          <a
+                            href="/activwork/communication-hub.html"
+                            class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                            >Communication Hub</a
+                          >
+                        </li>
+
+                        <li>
+                          <a
+                            href="/activwork/proof-in-numbers.html"
+                            class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                            >Proof in Numbers</a
+                          >
+                        </li>
+
+                        <li>
+                          <a
+                            href="/activwork/prioritization-logic.html"
+                            class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                            >Prioritization Logic</a
+                          >
+                        </li>
+
+                        <li>
+                          <a
+                            href="/activwork/multi-org-architecture.html"
+                            class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                            >Multi-Org Architecture</a
+                          >
+                        </li>
+
+                        <li>
+                          <a
+                            href="/activwork/data-inflows.html"
+                            class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                            >Data Inflows</a
+                          >
+                        </li>
+
+                        <li>
+                          <a
+                            href="/activwork/the-normal-stuff.html"
+                            class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                            >The Normal Stuff</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="border-t border-dashed border-gray-400 pt-2">
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">For</h6>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                        <li>
+                          <a href="#" class="hover:text-teal-700">111</a>
+                        </li>
+                        <li>
+                          <a href="#" class="hover:text-teal-700">222</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="border-t border-dashed border-gray-400 pt-2">
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">
+                        Pricing
+                      </h6>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                        <li>
+                          <a href="#" class="hover:text-teal-700"
+                            >Transactional First/Then Free</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="hover:text-teal-700"
+                            >Savings Calculator</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="border-t border-dashed border-gray-400 pt-2">
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">
+                        Featured Article
+                      </h6>
+                      <img
+                        src="../images/subpage1/slider_doctor2.PNG"
+                        alt="featured"
+                        class="w-full h-28 object-cover rounded-lg mb-3"
+                      />
+                      <h5 class="font-semibold text-gray-800">
+                        Willow in Action: Simplifying Healthcare
+                      </h5>
+                      <p class="text-sm text-gray-500">
+                        How Willow streamlines practice workflows.
+                      </p>
+                      <a
+                        href="#"
+                        class="text-sm text-teal-700 inline-block mt-2"
+                        >Read more →</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div id="mobile-pane-activBenefits" class="hidden">
+                  <div class="bg-warm-grey grid grid-cols-1 gap-6 p-4">
+                    <div>
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">
+                        Features
+                      </h6>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                        <li>
+                          <a
+                            href="/activpractice/transactional-billing.html"
+                            class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                            >Transactional Billing, Rebuilt</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="/activpractice/free-billing.html"
+                            class="block w-full p-1 spruce hover:text-[#850a56] rounded-md transition duration-150"
+                            >Free Billing is Possible</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="border-t border-dashed border-gray-400 pt-2">
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">For</h6>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                        <li>
+                          <a href="#" class="hover:text-teal-700">111</a>
+                        </li>
+                        <li>
+                          <a href="#" class="hover:text-teal-700">222</a>
+                        </li>
+                        <li>
+                          <a href="#" class="hover:text-teal-700">333</a>
+                        </li>
+                        <li>
+                          <a href="#" class="hover:text-teal-700">444</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="border-t border-dashed border-gray-400 pt-2">
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">
+                        Pricing
+                      </h6>
+                      <ul class="space-y-2 text-sm text-gray-700">
+                        <li>
+                          <a href="#" class="hover:text-teal-700"
+                            >Transactional First/Then Free</a
+                          >
+                        </li>
+                        <li>
+                          <a href="#" class="hover:text-teal-700"
+                            >Savings Calculator</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="border-t border-dashed border-gray-400 pt-2">
+                      <h6 class="text-xs uppercase text-gray-500 mb-3">
+                        Featured Article
+                      </h6>
+                      <img
+                        src="../images/subpage1/slider_doctor2.PNG"
+                        alt="featured"
+                        class="w-full h-28 object-cover rounded-lg mb-3"
+                      />
+                      <h5 class="font-semibold text-gray-800">
+                        Willow in Action: Simplifying Healthcare
+                      </h5>
+                      <p class="text-sm text-gray-500">
+                        How Willow streamlines practice workflows.
+                      </p>
+                      <a
+                        href="#"
+                        class="text-sm text-teal-700 inline-block mt-2"
+                        >Read more →</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <button
+              class="w-full flex justify-between items-center"
+              data-mobile-toggle="dd-why"
+            >
+              Why Alderr
+              <svg
+                class="h-4 w-4 chev"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div id="mobile-dd-why" class="mt-2 hidden">
+              <a href="#" class="block py-1">Our Story</a
+              ><a href="#" class="block py-1">Team</a>
+            </div>
+          </li>
+          <li>
+            <button
+              class="w-full flex justify-between items-center"
+              data-mobile-toggle="dd-who"
+            >
+              Who We Help
+              <svg
+                class="h-4 w-4 chev"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div id="mobile-dd-who" class="mt-2 hidden">
+              <a href="#" class="block py-1">For Practices</a
+              ><a href="#" class="block py-1">For Patients</a>
+            </div>
+          </li>
+          <li>
+            <button
+              class="w-full flex justify-between items-center"
+              data-mobile-toggle="dd-res"
+            >
+              Resources
+              <svg
+                class="h-4 w-4 chev"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div id="mobile-dd-res" class="mt-2 hidden">
+              <a href="#" class="block py-1">Docs</a
+              ><a href="#" class="block py-1">Support</a>
+            </div>
+          </li>
+          <li>
+            <button
+              class="w-full flex justify-between items-center"
+              data-mobile-toggle="dd-co"
+            >
+              Company/Investors
+              <svg
+                class="h-4 w-4 chev"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div id="mobile-dd-co" class="mt-2 hidden">
+              <a href="#" class="block py-1">Investors</a
+              ><a href="#" class="block py-1">Press</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const alignmentBtn = document.getElementById("alignment-btn");
+        const alignmentPanel = document.getElementById("alignment-panel");
+        const dropdownBtns = Array.from(
+          document.querySelectorAll(".dropdown-btn")
+        );
+        const dropdownMenus = dropdownBtns
+          .map((b) => document.getElementById(b.getAttribute("data-dropdown")))
+          .filter(Boolean);
+        const mobileBtn = document.getElementById("mobile-menu-btn");
+        const mobileNav = document.getElementById("mobile-nav");
+
+        function setChevron(btn, open) {
+          const svg = btn.querySelector(".chev");
+          if (!svg) return;
+          if (open) svg.classList.add("rotate-180");
+          else svg.classList.remove("rotate-180");
+        }
+        function hideAlignment() {
+          if (alignmentPanel) {
+            alignmentPanel.classList.remove("open");
+            alignmentPanel.classList.add("closed");
+            setChevron(alignmentBtn, false);
+          }
+        }
+        function showAlignment() {
+          if (alignmentPanel) {
+            alignmentPanel.classList.remove("closed");
+            alignmentPanel.classList.add("open");
+            setChevron(alignmentBtn, true);
+          }
+        }
+        function hideAllDropdowns(exceptId) {
+          dropdownMenus.forEach((m) => {
+            if (!exceptId || m.id !== exceptId) {
+              m.classList.remove("open");
+              m.classList.add("closed");
+            }
+          });
+          dropdownBtns.forEach((b) => {
+            if (!exceptId || b.getAttribute("data-dropdown") !== exceptId)
+              setChevron(b, false);
+          });
+        }
+        function closeAll(exceptEl) {
+          if (!exceptEl || exceptEl !== alignmentPanel) hideAlignment();
+          hideAllDropdowns(exceptEl && exceptEl.id);
+        }
+
+        // alignment toggle
+        if (alignmentBtn && alignmentPanel) {
+          alignmentBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            const isOpen = alignmentPanel.classList.contains("open");
+            if (isOpen) {
+              closeAll();
+            } else {
+              closeAll(alignmentPanel);
+              showAlignment();
+            }
+          });
+        }
+
+        // tab behavior
+        const tabBtns = document.querySelectorAll("#alignment-panel .tab-btn");
+        const panes = document.querySelectorAll("#alignment-panel .tab-pane");
+        function activatePane(id) {
+          panes.forEach((p) => p.classList.add("hidden"));
+          const el = document.getElementById(id);
+          if (el) el.classList.remove("hidden");
+          tabBtns.forEach((b) => b.classList.remove("spruce", "font-semibold"));
+          const activeBtn = Array.from(tabBtns).find(
+            (b) => b.getAttribute("data-tab") === id
+          );
+          if (activeBtn) activeBtn.classList.add("spruce", "font-semibold");
+        }
+        tabBtns.forEach((btn) =>
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            activatePane(btn.getAttribute("data-tab"));
+          })
+        );
+        activatePane("pane-activPractice");
+
+        // mobile tab behavior
+        const mobileTabBtns = document.querySelectorAll(".mobile-tab-btn");
+        const mobilePanes = document.querySelectorAll('[id^="mobile-pane-"]');
+        function activateMobilePane(id) {
+          mobilePanes.forEach((p) => p.classList.add("hidden"));
+          const el = document.getElementById(id);
+          if (el) el.classList.remove("hidden");
+
+          // update active styles on mobile tab buttons
+          mobileTabBtns.forEach((b) => {
+            b.classList.remove("bg-teal-50", "text-teal-700", "font-semibold");
+          });
+          const activeBtn = Array.from(mobileTabBtns).find(
+            (b) => b.getAttribute("data-tab") === id
+          );
+          if (activeBtn)
+            activeBtn.classList.add(
+              "bg-teal-50",
+              "text-teal-700",
+              "font-semibold"
+            );
+        }
+        mobileTabBtns.forEach((btn) =>
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            activateMobilePane(btn.getAttribute("data-tab"));
+          })
+        );
+        activateMobilePane("mobile-pane-activPractice");
+
+        // dropdown toggles
+        dropdownBtns.forEach((btn) => {
+          const menuId = btn.getAttribute("data-dropdown");
+          const menu = document.getElementById(menuId);
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            const isClosed = menu.classList.contains("closed");
+            closeAll(menu);
+            if (isClosed) {
+              menu.classList.remove("closed");
+              menu.classList.add("open");
+              setChevron(btn, true);
+            } else {
+              menu.classList.remove("open");
+              menu.classList.add("closed");
+              setChevron(btn, false);
+            }
+          });
+        });
+
+        // mobile menu toggle
+        if (mobileBtn && mobileNav) {
+          mobileBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            mobileNav.classList.toggle("hidden");
+          });
+        }
+
+        // mobile toggles for submenus (accordion behavior: only one top-level panel open)
+        document.querySelectorAll("[data-mobile-toggle]").forEach((btn) => {
+          btn.addEventListener("click", function (e) {
+            const key = btn.getAttribute("data-mobile-toggle");
+            const el = document.getElementById("mobile-" + key);
+            if (!el) return;
+
+            const wasHidden = el.classList.contains("hidden");
+
+            // If opening this panel, close all other top-level mobile panels
+            if (wasHidden) {
+              document
+                .querySelectorAll("[data-mobile-toggle]")
+                .forEach((otherBtn) => {
+                  const otherKey = otherBtn.getAttribute("data-mobile-toggle");
+                  const otherEl = document.getElementById("mobile-" + otherKey);
+                  if (otherEl && otherEl !== el)
+                    otherEl.classList.add("hidden");
+                  // reset chevron on other buttons
+                  if (otherBtn !== btn) {
+                    const s = otherBtn.querySelector(".chev");
+                    if (s) s.classList.remove("rotate-180");
+                  }
+                });
+            }
+
+            // toggle this panel
+            el.classList.toggle("hidden");
+
+            // when opening alignment, ensure its inner pane is set
+            if (wasHidden && key === "alignment")
+              activateMobilePane("mobile-pane-activPractice");
+
+            const svg = btn.querySelector(".chev");
+            if (svg) svg.classList.toggle("rotate-180");
+          });
+        });
+
+        // global click to close
+        document.addEventListener("click", function (e) {
+          const target = e.target;
+          if (alignmentPanel && alignmentPanel.contains(target)) return;
+          if (alignmentBtn && alignmentBtn.contains(target)) return;
+          for (const btn of dropdownBtns) {
+            const menu = document.getElementById(
+              btn.getAttribute("data-dropdown")
+            );
+            if (menu && (menu.contains(target) || btn.contains(target))) return;
+          }
+          // clicks outside close everything
+          closeAll();
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") closeAll();
+        });
+      })();
+    </script>
+  </body>
+</html>

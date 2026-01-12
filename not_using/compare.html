@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Tab Colors</title>
+    <!-- Include the Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Define the utility classes for the smooth transition effect */
+        .smooth-hide {
+            max-height: 0;
+            opacity: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            overflow: hidden; 
+        }
+        .smooth-show {
+            /* Increased max-height slightly to ensure it contains content before scroll takes over */
+            max-height: 600px; 
+            opacity: 1;
+        }
+        /* Base arrow style (downward by default) */
+        .arrow {
+            transition-property: transform;
+            transition-duration: 300ms;
+            transition-timing-function: ease-in-out;
+        }
+        /* Rotated state (upward) */
+        .rotated {
+            transform: rotate(180deg);
+        }
+        /* Active Class for Navigation Links */
+        .nav-active {
+            color: #4f46e5; /* Tailwind indigo-600 */
+            font-weight: 600; /* Tailwind font-semibold */
+        }
+        /* Tab Button Base Style for color cleanup */
+        .tab-btn {
+            transition: all 150ms ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+    <!-- Primary Fixed Navigation Bar (Header) -->
+    <header id="header" class="w-full bg-white shadow-lg fixed top-0 left-0 z-20">
+        <div class="max-w-4xl mx-auto p-4">
+            
+            <!-- Navbar: MySite (Left) - Nav Links (Center) - Button (Right) -->
+            <nav class="flex items-center justify-between flex-wrap">
+                
+                <!-- 1. Left: MySite Logo/Title -->
+                <div class="text-2xl font-extrabold text-indigo-700">MySite</div>
+
+                <!-- 2. Center: Desktop Navigation Links (Centered) -->
+                <div id="desktop-menu" class="hidden sm:flex sm:items-center sm:space-x-4 mx-auto">
+                    <button class="nav-toggle-btn flex items-center space-x-1 text-gray-700 hover:text-indigo-600 font-medium transition duration-150" data-link="Home"><span>HOME</span><svg class="arrow h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                    <button class="nav-toggle-btn flex items-center space-x-1 text-gray-700 hover:text-indigo-600 font-medium transition duration-150" data-link="About"><span>ABOUT</span><svg class="arrow h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                    <button class="nav-toggle-btn flex items-center space-x-1 text-gray-700 hover:text-indigo-600 font-medium transition duration-150" data-link="Product"><span>PRODUCT</span><svg class="arrow h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                    <button class="nav-toggle-btn flex items-center space-x-1 text-gray-700 hover:text-indigo-600 font-medium transition duration-150" data-link="Service"><span>SERVICE</span><svg class="arrow h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                    <button class="nav-toggle-btn flex items-center space-x-1 text-gray-700 hover:text-indigo-600 font-medium transition duration-150" data-link="Pricing"><span>PRICING</span><svg class="arrow h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></button>
+                </div>
+
+                <!-- 3. Right: Mobile Button and Get Started Button -->
+                <div class="flex items-center space-x-4">
+                    <!-- Desktop CTA Button -->
+                    <button class="px-3 py-1.5 bg-indigo-600 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-150 hidden sm:block">
+                        Get Started
+                    </button>
+                    <!-- Mobile Menu Toggle -->
+                    <button id="mobile-menu-button" class="sm:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                    </button>
+                </div>
+            </nav>
+            
+            <!-- Mobile Navigation Links (Unchanged) -->
+            <div id="mobile-menu" class="hidden sm:hidden w-full pt-2 border-t mt-2">
+                <button class="nav-toggle-btn block w-full text-left p-2 text-gray-700 hover:bg-gray-100 transition duration-150" data-link="Home"><span class="flex items-center justify-between"><span>HOME</span><svg class="arrow h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span></button>
+                <button class="nav-toggle-btn block w-full text-left p-2 text-gray-700 hover:bg-gray-100 transition duration-150" data-link="About"><span class="flex items-center justify-between"><span>ABOUT</span><svg class="arrow h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span></button>
+                <button class="nav-toggle-btn block w-full text-left p-2 text-gray-700 hover:bg-gray-100 transition duration-150" data-link="Product"><span class="flex items-center justify-between"><span>PRODUCT</span><svg class="arrow h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span></button>
+                <button class="nav-toggle-btn block w-full text-left p-2 text-gray-700 hover:bg-gray-100 transition duration-150" data-link="Service"><span class="flex items-center justify-between"><span>SERVICE</span><svg class="arrow h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span></button>
+                <button class="nav-toggle-btn block w-full text-left p-2 text-gray-700 hover:bg-gray-100 transition duration-150" data-link="Pricing"><span class="flex items-center justify-between"><span>PRICING</span><svg class="arrow h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg></span></button>
+            </div>
+            
+        </div>
+    </header>
+    
+    <!-- Desktop Page Wrapper. We add 'relative' here so the absolute-positioned panel is contained within. -->
+    <div id="desktop-page-wrapper" class="pt-20 relative"> 
+        
+        <!-- The Panel HTML. 'relative' class is removed here and added/removed dynamically by JS -->
+        <div id="toggleDiv" 
+             class="w-full shadow-xl overflow-hidden smooth-hide transition-all duration-500 ease-in-out bg-white sm:rounded-none sm:border-x-0" 
+             role="region">
+            
+            <!-- INNER WRAPPER: Constrains and centers the panel's content on desktop -->
+            <div class="max-w-4xl mx-auto py-6"> 
+                
+                <!-- Close Button: Positioned absolute relative to the full-width panel. -->
+                <button id="closeButton" class="absolute top-2 right-4 p-1 text-gray-400 hover:text-gray-600 focus:outline-none rounded-full transition-colors z-30" aria-label="Close">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+                
+                <div class="px-4">
+                    <!-- Custom Content Container for "About" -->
+                    <div id="about-content" class="text-gray-600 hidden pt-4">
+                        <h3 class="text-xl font-semibold text-indigo-700 mb-4">About Our Company</h3>
+                        <p class="mb-4">This content is specific to the **About** link and does not use tabs. The items below now have a hover effect.</p>
+                        
+                        <ul class="space-y-1">
+                            <li>
+                                <a href="#" class="block w-full p-2 text-gray-700 hover:bg-gray-100 rounded-md transition duration-150">
+                                    Our Mission
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="block w-full p-2 text-gray-700 hover:bg-gray-100 rounded-md transition duration-150">
+                                    Our History
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="block w-full p-2 text-gray-700 hover:bg-gray-100 rounded-md transition duration-150">
+                                    Team Members
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Tabbed Content Container for ALL other links -->
+                    <div id="tabbed-content" class="pt-4">
+                        
+                        <!-- NEW: Main Dynamic Title is placed here, outside the individual tab panes -->
+                        <h3 class="text-2xl font-extrabold mb-4">Content for <span id="dynamic-link-name" class="font-bold text-indigo-700"></span></h3>
+
+                        <div class="flex flex-col sm:flex-row">
+                            
+                            <!-- Tab Buttons Sidebar/Header (Horizontal on mobile, vertical on desktop) -->
+                            <div id="tabButtons" class="flex flex-row overflow-x-auto space-x-2 pb-2 border-b border-gray-200 
+                                                       sm:flex-col sm:space-y-2 sm:space-x-0 sm:pr-4 sm:min-w-[120px] sm:border-r sm:border-b-0">
+                                
+                                <button class="tab-btn px-4 py-2 text-sm font-medium rounded-lg text-left whitespace-nowrap sm:w-full" data-tab="tab1">Tab 1: Info</button>
+                                <button class="tab-btn px-4 py-2 text-sm font-medium rounded-lg text-left whitespace-nowrap sm:w-full" data-tab="tab2">Tab 2: Services</button>
+                                <button class="tab-btn px-4 py-2 text-sm font-medium rounded-lg text-left whitespace-nowrap sm:w-full" data-tab="tab3">Tab 3: Support</button>
+                            </div>
+
+                            <!-- Tab Content Wrapper (Max height and scrollable on both mobile and desktop) -->
+                            <div id="tabContentWrapper" 
+                                 class="flex-grow mt-4 sm:mt-0 sm:ml-4 rounded-lg transition-colors duration-300 
+                                        max-h-[300px] sm:max-h-[400px] overflow-y-auto">
+                                <div id="tabContent" class="w-full p-4">
+                                    
+                                    <div id="tab1" class="tab-pane">
+                                        <h4 class="text-lg font-semibold mb-3">Core Features</h4>
+                                        <!-- 3-Column Layout for Home/Tab1 -->
+                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                            <!-- Column 1 -->
+                                            <div class="p-4 bg-indigo-100/50 rounded-lg">
+                                                <h5 class="font-bold text-base mb-2 text-indigo-800">Feature 1: Real-Time Data</h5>
+                                                <p class="text-sm">Access and monitor your critical data streams in real-time, ensuring you always have the most current information at your fingertips for immediate decision-making.</p>
+                                            </div>
+                                            <!-- Column 2 -->
+                                            <div class="p-4 bg-indigo-100/50 rounded-lg">
+                                                <h5 class="font-bold text-base mb-2 text-indigo-800">Feature 2: Dynamic Reporting</h5>
+                                                <p class="text-sm">Generate comprehensive and customizable reports instantly. Filter, sort, and visualize metrics exactly how you need them, tailored to your workflow.</p>
+                                            </div>
+                                            <!-- Column 3 -->
+                                            <div class="p-4 bg-indigo-100/50 rounded-lg">
+                                                <h5 class="font-bold text-base mb-2 text-indigo-800">Feature 3: Secure Storage</h5>
+                                                <p class="text-sm">Your information is protected with enterprise-grade security protocols. Benefit from encrypted, redundant cloud storage with guaranteed uptime and reliability.</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Added content to trigger desktop scrollbar when content overflows the 400px limit -->
+                                        <div class="mt-6 p-4 bg-indigo-100/50 rounded-lg col-span-1 md:col-span-3">
+                                            <h5 class="font-bold text-base mb-2 text-indigo-800">Further Details on System Architecture</h5>
+                                            <p class="text-sm mb-2">Our architecture is built on a scalable microservices framework, ensuring that any component can be updated or scaled independently without affecting the core system stability. This modular design drastically reduces deployment risk and increases performance under heavy load.</p>
+                                            <p class="text-sm mb-2">The system utilizes asynchronous processing queues for non-critical tasks like report generation and notification delivery, maintaining a swift and responsive user interface even when background tasks are running. All communication channels are secured via TLS 1.3 encryption.</p>
+                                            <p class="text-sm mb-2">**Compliance and Auditing:** We maintain a comprehensive audit log for every transaction and data access point, meeting strict regulatory requirements such as GDPR, HIPAA, and CCPA. This transparency allows for simplified compliance checks and internal accountability.</p>
+                                            <p class="text-sm">This section serves as filler content to definitively trigger the desktop scrollbar when the screen height is typical, confirming the `sm:max-h-[400px]` is working as intended.</p>
+                                        </div>
+                                        <!-- End added content -->
+                                    </div>
+                                    
+                                    <div id="tab2" class="tab-pane hidden">
+                                        <h4 class="text-lg font-semibold mb-3">Detailed Service Offerings</h4>
+                                        <p class="text-base">This content area is dedicated to our detailed service packages, training, and consultation options. When this tab is active, the panel background will get the light **Pink** color.</p>
+                                        <ul class="list-disc pl-5 mt-4 text-sm space-y-2">
+                                            <li>Enterprise API Integration support.</li>
+                                            <li>Dedicated 24/7 priority customer support line.</li>
+                                            <li>Quarterly performance reviews and optimization reports.</li>
+                                        </ul>
+                                    </div>
+                                    <div id="tab3" class="tab-pane hidden">
+                                        <h4 class="text-lg font-semibold mb-3">Help and Support Resources</h4>
+                                        <p class="text-base">Find articles, FAQs, and contact information for our support team here. When this tab is active, the panel background will get the light **Amber** color.</p>
+                                        <div class="mt-4 p-3 border rounded-lg bg-amber-100/50">
+                                            <p class="font-medium text-amber-800">Need immediate help? Call us at (555) 123-4567.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- This is the centered anchor point for the rest of the page's content -->
+        <div id="main-content-container" class="w-full max-w-4xl mx-auto px-4">
+            
+            <!-- DEMO CONTENT SECTION BELOW THE PANEL -->
+            <section class="py-12 bg-white shadow-xl rounded-xl mb-10 border-t-4 border-indigo-500">
+                <h2 class="text-3xl font-extrabold text-gray-800 text-center mb-4">The Main Page Content</h2>
+                <p class="text-center text-gray-600 max-w-2xl mx-auto px-4">This section is the static, primary content of the webpage. It is always visible below the header and the dynamic dropdown panel. </p>
+                <p class="text-center text-gray-600 max-w-2xl mx-auto px-4 mt-2 font-semibold">Try clicking the navigation links above!</p>
+                <div class="flex justify-center mt-6 space-x-4">
+                    <button class="px-6 py-2 bg-indigo-600 text-white font-semibold rounded-full hover:bg-indigo-700 transition duration-150 shadow-lg transform hover:scale-105">Learn More</button>
+                    <button class="px-6 py-2 bg-gray-200 text-gray-700 font-semibold rounded-full hover:bg-gray-300 transition duration-150 shadow-md transform hover:scale-105">View Features</button>
+                </div>
+            </section>
+            <!-- END NEW DEMO CONTENT SECTION -->
+
+            <p class="text-center text-gray-400 py-12">More content can go here...</p>
+        </div>
+    </div>
+
+
+    <!-- JavaScript Logic -->
+    <script>
+        const isMobile = () => window.innerWidth < 640;
+        
+        // Flicker Fix: Ensure the panel is hidden immediately on load
+        document.getElementById('toggleDiv').classList.add('smooth-hide');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const navButtons = document.querySelectorAll('.nav-toggle-btn');
+            const closeButton = document.getElementById('closeButton');
+            const toggleDiv = document.getElementById('toggleDiv');
+            const header = document.getElementById('header');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            // New Anchor Point for Desktop Insertion (the full width container)
+            const desktopInsertionAnchor = document.getElementById('desktop-page-wrapper');
+            // The constraint element used to determine where to place the panel relative to page content
+            const mainContentContainer = document.getElementById('main-content-container');
+
+            const aboutContent = document.getElementById('about-content');
+            const tabbedContent = document.getElementById('tabbed-content');
+
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            const tabContentWrapper = document.getElementById('tabContentWrapper');
+            
+            // NEW: Get the element for the dynamic link name inside the tab content
+            const dynamicLinkNameSpan = document.getElementById('dynamic-link-name');
+            
+            let isPanelOpen = false;
+            let activeNavButton = null; 
+            
+            // Define all colors associated with each tab
+            const COLORS = {
+                tab1: { contentBg: 'bg-indigo-50', buttonBg: 'bg-indigo-600', contentText: 'text-indigo-800', titleText: 'text-indigo-700' },
+                tab2: { contentBg: 'bg-pink-50', buttonBg: 'bg-pink-600', contentText: 'text-pink-800', titleText: 'text-pink-700' },
+                tab3: { contentBg: 'bg-amber-50', buttonBg: 'bg-amber-500', contentText: 'text-amber-800', titleText: 'text-amber-700' }
+            };
+
+            const ALL_BG_CLASSES = ['bg-indigo-50', 'bg-pink-50', 'bg-amber-50'];
+            const ALL_BUTTON_BG_CLASSES = ['bg-indigo-600', 'bg-pink-600', 'bg-amber-500'];
+            // Simplified ALL_TEXT_CLASSES for easier cleanup
+            const ALL_TEXT_CLASSES = ['text-indigo-800', 'text-pink-800', 'text-amber-800', 'text-white']; 
+
+
+            // --- Arrow Helper ---
+            const getArrow = (button) => {
+                return button.querySelector('.arrow');
+            };
+
+            // --- Panel Visibility Functions (updated) ---
+            const openDiv = (button) => {
+                const linkName = button.getAttribute('data-link');
+                const isAboutPanel = linkName === 'About';
+
+                // 1. Navigation Active State & Arrow Cleanup
+                if (activeNavButton) {
+                    activeNavButton.classList.remove('nav-active');
+                    const prevArrow = getArrow(activeNavButton);
+                    if (prevArrow) prevArrow.classList.remove('rotated');
+                }
+                
+                // 2. Dynamic Panel Movement (Mobile/Desktop) & Class Setup
+                if (isMobile()) {
+                    // Mobile: Panel remains in normal flow (relative) to push content down
+                    button.parentNode.insertBefore(toggleDiv, button.nextSibling);
+                    // Ensure relative positioning and mobile styles
+                    toggleDiv.classList.add('relative', 'border-x-0', 'border-b-0'); 
+                    toggleDiv.classList.remove('absolute', 'top-0', 'z-10', 'mt-4', 'sm:rounded-none', 'sm:border-x-0', 'border'); 
+                } else {
+                    // Desktop: Panel uses absolute positioning to overlay content
+                    if (toggleDiv.parentNode !== desktopInsertionAnchor) {
+                        desktopInsertionAnchor.insertBefore(toggleDiv, mainContentContainer);
+                    }
+                    // Apply ABOLUTE positioning to overlay content. top-0 aligns it exactly below the fixed header.
+                    toggleDiv.classList.add('absolute', 'top-0', 'z-10', 'sm:rounded-none', 'sm:border-x-0');
+                    toggleDiv.classList.remove('relative', 'border-x-0', 'border-b-0', 'mt-4'); 
+                }
+
+                // 3. Conditional Content Toggle and Title Update
+                if (isAboutPanel) {
+                    tabbedContent.classList.add('hidden');
+                    aboutContent.classList.remove('hidden');
+                } else {
+                    aboutContent.classList.add('hidden');
+                    tabbedContent.classList.remove('hidden');
+                    
+                    // FIX: Update the dynamic link name display in the main panel title
+                    if (dynamicLinkNameSpan) {
+                        dynamicLinkNameSpan.textContent = linkName.toUpperCase();
+                    }
+
+                    openTab('tab1'); // Default to Tab 1 if content is tabbed
+                }
+                
+                // 4. Navigation Active State & Arrow Update
+                button.classList.add('nav-active');
+                const currentArrow = getArrow(button);
+                if (currentArrow) currentArrow.classList.add('rotated');
+                activeNavButton = button; 
+
+                // 5. Show Panel
+                toggleDiv.classList.add('smooth-show');
+                toggleDiv.classList.remove('smooth-hide');
+                isPanelOpen = true;
+            };
+
+            const closeDiv = (isManualClose = false) => {
+                // Remove active state and rotation
+                if (activeNavButton) {
+                    activeNavButton.classList.remove('nav-active');
+                    const arrow = getArrow(activeNavButton);
+                    if (arrow) arrow.classList.remove('rotated');
+                    activeNavButton = null; 
+                }
+                
+                // Hide Panel
+                toggleDiv.classList.add('smooth-hide');
+                toggleDiv.classList.remove('smooth-show');
+                isPanelOpen = false;
+
+                // Only close the mobile menu if the close trigger was NOT the internal close button or manual toggle.
+                if (isMobile() && !isManualClose && !mobileMenu.classList.contains('hidden')) {
+                     mobileMenu.classList.add('hidden');
+                }
+            };
+            
+            // --- Tab Switching Function (unchanged) ---
+            const openTab = (tabId) => {
+                
+                const colorSet = COLORS[tabId];
+
+                // 1. Clean up ALL tab buttons and reset to NEUTRAL INACTIVE state
+                tabButtons.forEach(btn => {
+                    // Reset to a clean, neutral state by removing all color classes
+                    btn.classList.remove(
+                        'tab-active', 
+                        ...ALL_BUTTON_BG_CLASSES, 
+                        ...ALL_BG_CLASSES, 
+                        ...ALL_TEXT_CLASSES 
+                    );
+                    
+                    // Apply standard inactive look: Gray text on transparent background, with gray hover
+                    btn.classList.add('text-gray-700', 'hover:bg-gray-100');
+                });
+                
+                // 2. Hide all tab content panes
+                tabPanes.forEach(pane => { pane.classList.add('hidden'); });
+
+                // 3. Clean up content wrapper colors
+                tabContentWrapper.classList.remove(...ALL_BG_CLASSES);
+                
+                // 4. Apply ACTIVE Button Colors 
+                const activeBtn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+                if (activeBtn) {
+                    // Remove neutral inactive styles before applying active styles
+                    activeBtn.classList.remove('text-gray-700', 'hover:bg-gray-100');
+                    
+                    // Apply the dark active style
+                    activeBtn.classList.add('text-white', 'tab-active', colorSet.buttonBg);
+                }
+
+                // 5. Apply Content Wrapper Background Color (for the active tab)
+                tabContentWrapper.classList.add(colorSet.contentBg);
+                
+                // 6. Show active tab pane and set dynamic text colors
+                document.getElementById(tabId).classList.remove('hidden');
+
+                // Update text color for content inside the tab pane 
+                const contentDiv = document.getElementById('tabContent');
+                contentDiv.classList.remove(...ALL_TEXT_CLASSES);
+                contentDiv.classList.add(colorSet.contentText);
+            };
+
+            // --- Event Listeners (mostly unchanged) ---
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                if (isPanelOpen) {
+                    closeDiv(true);
+                }
+            });
+
+            navButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    
+                    if (isPanelOpen && activeNavButton === button) {
+                        closeDiv(true);
+                        return;
+                    }
+                    openDiv(button);
+                });
+            });
+
+            closeButton.addEventListener('click', () => {
+                closeDiv(true); 
+            });
+
+            document.addEventListener('click', (event) => {
+                if (isPanelOpen) {
+                    // Check if click target is outside the panel AND outside the header
+                    if (!toggleDiv.contains(event.target) && !header.contains(event.target)) {
+                        closeDiv(false); 
+                    }
+                }
+            });
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    openTab(button.getAttribute('data-tab'));
+                });
+            });
+
+            window.addEventListener('resize', () => {
+                // Ensure the panel is correctly positioned on resize if changing from mobile to desktop view
+                if (!isMobile() && toggleDiv.parentNode !== desktopInsertionAnchor) {
+                    closeDiv(true);
+                    desktopInsertionAnchor.insertBefore(toggleDiv, mainContentContainer);
+                    // Apply desktop overlay classes on resize if it needs to be moved back
+                    toggleDiv.classList.add('absolute', 'top-0', 'z-10', 'sm:rounded-none', 'sm:border-x-0');
+                    toggleDiv.classList.remove('relative', 'border-x-0', 'border-b-0', 'mt-4'); 
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
