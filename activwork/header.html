@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alderr — Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/favicon/favicon-96x96.png"
+      sizes="96x96"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/images/favicon/favicon.svg"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="shortcut icon"
+      href="/images/favicon/favicon.ico"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/favicon/apple-touch-icon.png"
+      media="(prefers-color-scheme: light)"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/favicon/favicon-d/favicon-96x96.png"
+      sizes="96x96"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/images/favicon/favicon-d/favicon.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="shortcut icon"
+      href="/images/favicon/favicon-d/favicon.ico"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/favicon/favicon-d/apple-touch-icon.png"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/favicon/favicon-96x96.png"
+      sizes="96x96"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/images/favicon/favicon.svg"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="shortcut icon"
+      href="/images/favicon/favicon.ico"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/favicon/apple-touch-icon.png"
+      media="(prefers-color-scheme: light)"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/favicon/favicon-d/favicon-96x96.png"
+      sizes="96x96"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/images/favicon/favicon-d/favicon.svg"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="shortcut icon"
+      href="/images/favicon/favicon-d/favicon.ico"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/favicon/favicon-d/apple-touch-icon.png"
+      media="(prefers-color-scheme: dark)"
+    />
+    <meta name="apple-mobile-web-app-title" content="Alderr" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .menu-panel {
+        transition: transform 0.18s ease, opacity 0.18s ease;
+        transform-origin: top;
+      }
+      .menu-panel.closed {
+        opacity: 0;
+        transform: translateY(-6px) scale(0.98);
+        pointer-events: none;
+      }
+      .menu-panel.open {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+      }
+      .chev {
+        transition: transform 0.18s ease;
+      }
+      .rotate-180 {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-800 font-sans">
+    <header class="w-full bg-white shadow-sm">
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
+      >
+        <div class="flex items-center space-x-6">
+          <!--logo link based on subdomain -->
+          <!-- <a id="logo-link" href="/" class="flex items-center space-x-3">
+            <img
+              id="main-logo"
+              src="/images/subpage1/header_alderr_logo.svg"
+              alt="Alderr logo"
+              class="h-8"
+            /> -->
+
+          <!--logo link based on main domain  -->
+          <a href="/" class="flex items-center space-x-3">
+            <img
+              id="main-logo"
+              src="/images/subpage1/header_alderr_logo.svg"
+              alt="Alderr logo"
+              class="h-8"
+            />
+          </a>
+        </div>
+
+        <nav class="hidden lg:flex items-center space-x-6 pt-4">
+          <!-- <div class="relative" id="nav-alignment"> -->
+          <div
+            class="px-2 py-1 text-gray-700 hover:text-teal-700 dropdown-btn flex items-center space-x-2"
+          >
+            <a href="/activwork/aw-home.html">Home</a>
+
+            <!-- Megamenu panel -->
+          </div>
+
+          <div class="relative">
+            <button
+              class="px-2 py-1 text-gray-700 hover:text-teal-700 dropdown-btn flex items-center space-x-2"
+              data-dropdown="dd-why"
+            >
+              <span>Features</span>
+              <svg
+                class="h-4 w-4 chev"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div
+              id="dd-why"
+              class="absolute mt-2 bg-white border rounded shadow-md py-2 w-64 menu-panel closed"
+            >
+              <a
+                href="/activwork/workflow.html"
+                class="block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Workflow</a
+              >
+              <a
+                href="/activwork/self-auditing.html"
+                class="block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Self-Auditing QA</a
+              >
+              <a
+                href="/activwork/communication-hub.html"
+                class="block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Communication Hub</a
+              >
+              <a
+                href="/activwork/proof-in-numbers.html"
+                class="block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Proof in Numbers</a
+              >
+              <a
+                href="/activwork/prioritization-logic.html"
+                class="block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Prioritization Logic</a
+              >
+              <a
+                href="/activwork/multi-org-architecture.html"
+                class="block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Multi-Org Architecturey</a
+              >
+              <a
+                href="/activwork/data-inflows.html"
+                class="block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Data Inflows</a
+              >
+              <a
+                href="/activwork/the-normal-stuff.html"
+                class="block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >The Normal Stuff</a
+              >
+            </div>
+          </div>
+
+          <div class="relative">
+            <button
+              class="px-2 py-1 text-gray-700 hover:text-teal-700 dropdown-btn flex items-center space-x-2"
+              data-dropdown="dd-who"
+            >
+              <span>For</span>
+              <svg
+                class="h-4 w-4 chev"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div
+              id="dd-who"
+              class="absolute mt-2 bg-white border rounded shadow-md py-2 w-64 menu-panel closed"
+            >
+              <a
+                href="/activwork/billing-firms.html"
+                class="block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Billing Firms
+              </a>
+
+              <a
+                href="/activwork/global-bpos.html"
+                class="block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Global BPOs</a
+              >
+              <a
+                href="/activwork/health-system-cbos.html"
+                class="block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Health System CBO's</a
+              >
+            </div>
+          </div>
+
+          <div class="relative">
+            <button
+              class="px-2 py-1 text-gray-700 hover:text-teal-700 dropdown-btn flex items-center space-x-2"
+              data-dropdown="dd-res"
+            >
+              <span>Pricing</span>
+              <svg
+                class="h-4 w-4 chev"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div
+              id="dd-res"
+              class="absolute mt-2 bg-white border rounded shadow-md py-2 w-64 menu-panel closed"
+            >
+              <a
+                href="/activwork/get-invited.html"
+                class="block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Get Invited</a
+              >
+              <a
+                href="/activwork/pricing.html"
+                class="block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Pricing</a
+              >
+            </div>
+          </div>
+
+          <div class="relative">
+            <button
+              class="px-2 py-1 text-gray-700 hover:text-teal-700 dropdown-btn flex items-center space-x-2"
+              data-dropdown="dd-co"
+            >
+              <span>Featured Article</span>
+              <svg
+                class="h-4 w-4 chev"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div
+              id="dd-co"
+              class="absolute mt-2 bg-white border rounded shadow-md py-2 w-64 menu-panel closed"
+            >
+              <a
+                href="/company-investors/company-investors.html"
+                class="block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Investors</a
+              >
+              <a
+                href="/company-investors/security-compliance.html"
+                class="block px-4 py-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Security And Compliance</a
+              >
+            </div>
+          </div>
+        </nav>
+
+        <div class="flex items-center space-x-4">
+          <button id="mobile-menu-btn" class="lg:hidden bg-transparent p-2">
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+          <button
+            class="hidden lg:inline-block bg-[#850a56] text-white px-4 py-2 rounded-full"
+          >
+            Get Started
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile nav -->
+    <div id="mobile-nav" class="lg:hidden hidden bg-white border-b">
+      <div class="max-w-7xl mx-auto px-6 py-4">
+        <ul class="space-y-3">
+          <li>
+            <button
+              class="w-full flex justify-between items-center font-semibold"
+              data-mobile-toggle="alignment"
+            >
+              <a
+                href="/activpatient/ap-home.html"
+                class="block py-2 text-sm pr-96 hover:text-teal-700 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Home</a
+              >
+            </button>
+          </li>
+          <li>
+            <button
+              class="w-full flex justify-between items-center font-semibold"
+              data-mobile-toggle="dd-why"
+            >
+              Features
+              <svg
+                class="h-4 w-4 chev"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div id="mobile-dd-why" class="mt-2 hidden">
+              <a
+                href="/activwork/workflow.html"
+                class="block p-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Workflow</a
+              ><a
+                href="/activwork/self-auditing.html"
+                class="block p-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Self-Auditing QA</a
+              >
+              <a
+                href="/activwork/communication-hub.html"
+                class="block p-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Communication Hub</a
+              ><a
+                href="/activwork/proof-in-numbers.html"
+                class="block p-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Proof in Numbers</a
+              >
+              <a
+                href="/activwork/prioritization-logic.html"
+                class="block p-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Prioritization Logic</a
+              ><a
+                href="/activwork/multi-org-architecture.html"
+                class="block p-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Multi-Org Architecture</a
+              >
+              <a
+                href="/activwork/data-inflows.html"
+                class="block p-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Data Inflows</a
+              ><a
+                href="/activwork/the-normal-stuff.html"
+                class="block p-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >The Normal Stuff</a
+              >
+            </div>
+          </li>
+          <li>
+            <button
+              class="w-full flex justify-between items-center font-semibold"
+              data-mobile-toggle="dd-who"
+            >
+              For
+              <svg
+                class="h-4 w-4 chev"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div id="mobile-dd-who" class="mt-2 hidden">
+              <a
+                href="/activwork/billing-firms.html"
+                class="block p-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Billing Firms
+              </a>
+              <a
+                href="/activwork/global-bpos.html"
+                class="block p-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Global BPOs</a
+              >
+              <a
+                href="/activwork/health-system-cbos.html"
+                class="block p-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Health System CBO's</a
+              >
+            </div>
+          </li>
+          <li>
+            <button
+              class="w-full flex justify-between items-center font-semibold"
+              data-mobile-toggle="dd-res"
+            >
+              Pricing
+              <svg
+                class="h-4 w-4 chev"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div id="mobile-dd-res" class="mt-2 hidden">
+              <a
+                href="/activwork/get-invited.html"
+                class="block p-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Get Invited</a
+              ><a
+                href="/activwork/pricing.html"
+                class="block p-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Pricing</a
+              >
+            </div>
+          </li>
+          <li>
+            <button
+              class="w-full flex justify-between items-center font-semibold"
+              data-mobile-toggle="dd-co"
+            >
+              Featured Article
+              <svg
+                class="h-4 w-4 chev"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div id="mobile-dd-co" class="mt-2 hidden">
+              <a
+                href="#"
+                class="block p-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Investors</a
+              ><a
+                href="#"
+                class="block p-2 text-sm hover:bg-gray-100 transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-102"
+                >Security And Compliance</a
+              >
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="/js/logo.js"></script>
+    <script>
+      (function () {
+        const alignmentBtn = document.getElementById("alignment-btn");
+        const alignmentPanel = document.getElementById("alignment-panel");
+        const dropdownBtns = Array.from(
+          document.querySelectorAll(".dropdown-btn")
+        );
+        const dropdownMenus = dropdownBtns
+          .map((b) => document.getElementById(b.getAttribute("data-dropdown")))
+          .filter(Boolean);
+        const mobileBtn = document.getElementById("mobile-menu-btn");
+        const mobileNav = document.getElementById("mobile-nav");
+
+        function setChevron(btn, open) {
+          const svg = btn.querySelector(".chev");
+          if (!svg) return;
+          if (open) svg.classList.add("rotate-180");
+          else svg.classList.remove("rotate-180");
+        }
+        function hideAlignment() {
+          if (alignmentPanel) {
+            alignmentPanel.classList.remove("open");
+            alignmentPanel.classList.add("closed");
+            setChevron(alignmentBtn, false);
+          }
+        }
+        function showAlignment() {
+          if (alignmentPanel) {
+            alignmentPanel.classList.remove("closed");
+            alignmentPanel.classList.add("open");
+            setChevron(alignmentBtn, true);
+          }
+        }
+        function hideAllDropdowns(exceptId) {
+          dropdownMenus.forEach((m) => {
+            if (!exceptId || m.id !== exceptId) {
+              m.classList.remove("open");
+              m.classList.add("closed");
+            }
+          });
+          dropdownBtns.forEach((b) => {
+            if (!exceptId || b.getAttribute("data-dropdown") !== exceptId)
+              setChevron(b, false);
+          });
+        }
+        function closeAll(exceptEl) {
+          if (!exceptEl || exceptEl !== alignmentPanel) hideAlignment();
+          hideAllDropdowns(exceptEl && exceptEl.id);
+        }
+
+        // alignment toggle
+        if (alignmentBtn && alignmentPanel) {
+          alignmentBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            const isOpen = alignmentPanel.classList.contains("open");
+            if (isOpen) {
+              closeAll();
+            } else {
+              closeAll(alignmentPanel);
+              showAlignment();
+            }
+          });
+        }
+
+        // tab behavior
+        const tabBtns = document.querySelectorAll("#alignment-panel .tab-btn");
+        const panes = document.querySelectorAll("#alignment-panel .tab-pane");
+        function activatePane(id) {
+          panes.forEach((p) => p.classList.add("hidden"));
+          const el = document.getElementById(id);
+          if (el) el.classList.remove("hidden");
+          tabBtns.forEach((b) => b.classList.remove("spruce", "font-semibold"));
+          const activeBtn = Array.from(tabBtns).find(
+            (b) => b.getAttribute("data-tab") === id
+          );
+          if (activeBtn) activeBtn.classList.add("spruce", "font-semibold");
+        }
+        tabBtns.forEach((btn) =>
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            activatePane(btn.getAttribute("data-tab"));
+          })
+        );
+        activatePane("pane-activPractice");
+
+        // mobile tab behavior
+        const mobileTabBtns = document.querySelectorAll(".mobile-tab-btn");
+        const mobilePanes = document.querySelectorAll('[id^="mobile-pane-"]');
+        function activateMobilePane(id) {
+          mobilePanes.forEach((p) => p.classList.add("hidden"));
+          const el = document.getElementById(id);
+          if (el) el.classList.remove("hidden");
+
+          // update active styles on mobile tab buttons
+          mobileTabBtns.forEach((b) => {
+            b.classList.remove("bg-teal-50", "text-teal-700", "font-semibold");
+          });
+          const activeBtn = Array.from(mobileTabBtns).find(
+            (b) => b.getAttribute("data-tab") === id
+          );
+          if (activeBtn)
+            activeBtn.classList.add(
+              "bg-teal-50",
+              "text-teal-700",
+              "font-semibold"
+            );
+        }
+        mobileTabBtns.forEach((btn) =>
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            activateMobilePane(btn.getAttribute("data-tab"));
+          })
+        );
+        activateMobilePane("mobile-pane-activPractice");
+
+        // dropdown toggles
+        dropdownBtns.forEach((btn) => {
+          const menuId = btn.getAttribute("data-dropdown");
+          const menu = document.getElementById(menuId);
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            const isClosed = menu.classList.contains("closed");
+            closeAll(menu);
+            if (isClosed) {
+              menu.classList.remove("closed");
+              menu.classList.add("open");
+              setChevron(btn, true);
+            } else {
+              menu.classList.remove("open");
+              menu.classList.add("closed");
+              setChevron(btn, false);
+            }
+          });
+        });
+
+        // mobile menu toggle
+        if (mobileBtn && mobileNav) {
+          mobileBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            mobileNav.classList.toggle("hidden");
+          });
+        }
+
+        // mobile toggles for submenus (accordion behavior: only one top-level panel open)
+        document.querySelectorAll("[data-mobile-toggle]").forEach((btn) => {
+          btn.addEventListener("click", function (e) {
+            const key = btn.getAttribute("data-mobile-toggle");
+            const el = document.getElementById("mobile-" + key);
+            if (!el) return;
+
+            const wasHidden = el.classList.contains("hidden");
+
+            // If opening this panel, close all other top-level mobile panels
+            if (wasHidden) {
+              document
+                .querySelectorAll("[data-mobile-toggle]")
+                .forEach((otherBtn) => {
+                  const otherKey = otherBtn.getAttribute("data-mobile-toggle");
+                  const otherEl = document.getElementById("mobile-" + otherKey);
+                  if (otherEl && otherEl !== el)
+                    otherEl.classList.add("hidden");
+                  // reset chevron on other buttons
+                  if (otherBtn !== btn) {
+                    const s = otherBtn.querySelector(".chev");
+                    if (s) s.classList.remove("rotate-180");
+                  }
+                });
+            }
+
+            // toggle this panel
+            el.classList.toggle("hidden");
+
+            // when opening alignment, ensure its inner pane is set
+            if (wasHidden && key === "alignment")
+              activateMobilePane("mobile-pane-activPractice");
+
+            const svg = btn.querySelector(".chev");
+            if (svg) svg.classList.toggle("rotate-180");
+          });
+        });
+
+        // global click to close
+        document.addEventListener("click", function (e) {
+          const target = e.target;
+          if (alignmentPanel && alignmentPanel.contains(target)) return;
+          if (alignmentBtn && alignmentBtn.contains(target)) return;
+          for (const btn of dropdownBtns) {
+            const menu = document.getElementById(
+              btn.getAttribute("data-dropdown")
+            );
+            if (menu && (menu.contains(target) || btn.contains(target))) return;
+          }
+          // clicks outside close everything
+          closeAll();
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") closeAll();
+        });
+      })();
+
+      console.log("The header script is running.");
+
+      // window.onload = function () {
+      //   const path = window.location.pathname;
+      //   console.log("The current path is: " + path);
+      //   const logoImg = document.getElementById("main-logo");
+
+      //   if (path.includes("/activpatient/")) {
+      //     logoImg.src = "/images/subpage1/header_ap_logo.svg"; // Path to AP logo
+      //     logoImg.alt = "ActivePatient";
+      //   } else if (path.includes("/activpractice/")) {
+      //     logoImg.src = "/images/subpage1/header_apt_logo.svg"; // Path to APT logo
+      //     logoImg.alt = "ActivPractice";
+      //   } else if (path.includes("/activwork/")) {
+      //     logoImg.src = "/images/subpage1/header_aw_logo.svg"; // Path to AW logo
+      //     logoImg.alt = "ActivWork";
+      //   } else if (path.includes("/activbenefits/")) {
+      //     logoImg.src = "/images/subpage1/header_ab_logo.svg"; // Path to AB logo
+      //     logoImg.alt = "Activbenefits";
+      //   } else {
+      //     logoImg.src = "/images/subpage1/header_alderr_logo.svg"; // default logo
+      //   }
+      // };
+
+      // document.addEventListener("DOMContentLoaded", function () {
+      //   // 1. Get the path (e.g., /activpatient/index.html)
+      //   const path = window.location.pathname;
+      //   const logoImg = document.getElementById("main-logo");
+
+      //   if (!logoImg) return; // Safety check
+
+      //   // 2. Check which folder name exists in the URL
+      //   // Note: We use the leading "/" for image paths
+      //   if (path.includes("activpatient")) {
+      //     logoImg.src = "/images/subpage1/header_ap_logo.svg";
+      //     logoImg.alt = "ActivePatient";
+      //   } else if (path.includes("activpractice")) {
+      //     logoImg.src = "/images/subpage1/header_apt_logo.svg";
+      //     logoImg.alt = "ActivPractice";
+      //   } else if (path.includes("activwork")) {
+      //     logoImg.src = "/images/subpage1/header_aw_logo.svg";
+      //     logoImg.alt = "ActivWork";
+      //   } else {
+      //     // Default logo for the home page (webdemo.alderr.com/)
+      //     logoImg.src = "/images/subpage1/header_alderr_logo.svg";
+      //   }
+      // });
+    </script>
+  </body>
+</html>

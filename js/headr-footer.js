@@ -31,8 +31,20 @@ function loadComponent(id, file) {
         .then(data => {
             if (!placeholder) return;
 
-            // Insert the fetched HTML
-            placeholder.innerHTML = data;
+            // Parse the returned HTML so we can extract only the header/footer fragment
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, 'text/html');
+
+            // If the fetched document contains a <header>, use it (and mobile nav if present)
+            const headerEl = doc.querySelector('header');
+            const mobileNavEl = doc.getElementById('mobile-nav');
+
+            if (headerEl) {
+                placeholder.innerHTML = headerEl.outerHTML + (mobileNavEl ? mobileNavEl.outerHTML : '');
+            } else {
+                // fallback: insert the whole body
+                placeholder.innerHTML = doc.body ? doc.body.innerHTML : data;
+            }
 
             // --- 1. Logo Swap Logic ---
             if (customLogo) {
@@ -43,19 +55,49 @@ function loadComponent(id, file) {
             // --- 2. Active Link Logic ---
             highlightActiveLink(placeholder);
 
-            // --- 3. Execute any scripts included in the fetched HTML ---
-            // Scripts inside HTML inserted via innerHTML do not execute automatically.
-            // Parse the returned HTML and append/run any <script> tags found.
+            // --- 3. Copy stylesheet <link> elements into document.head (if any) ---
             try {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(data, 'text/html');
+                const links = doc.querySelectorAll('link[rel="stylesheet"]');
+                links.forEach(l => {
+                    const href = l.getAttribute('href');
+                    if (!href) return;
+                    if (!document.querySelector(`link[href="${href}"]`)) {
+                        const newLink = document.createElement('link');
+                        newLink.rel = 'stylesheet';
+                        newLink.href = href;
+                        document.head.appendChild(newLink);
+                    }
+                });
+            } catch (e) {
+                // non-fatal
+            }
+            // --- 3b. Copy inline <style> tags from fetched head to document.head ---
+            try {
+                const styles = doc.querySelectorAll('style');
+                styles.forEach(s => {
+                    const css = s.textContent || '';
+                    if (!css) return;
+                    // Avoid duplicating identical style content
+                    const exists = Array.from(document.head.querySelectorAll('style')).some(hs => hs.textContent === css);
+                    if (!exists) {
+                        const newStyle = document.createElement('style');
+                        newStyle.textContent = css;
+                        document.head.appendChild(newStyle);
+                    }
+                });
+            } catch (e) {
+                // non-fatal
+            }
+
+            // --- 4. Execute any scripts included in the fetched HTML ---
+            // Scripts inside HTML inserted via innerHTML do not execute automatically.
+            // Append scripts from the parsed document to the body (preserve order).
+            try {
                 const scripts = doc.querySelectorAll('script');
 
                 scripts.forEach(s => {
                     if (s.src) {
-                        // Resolve the script src relative to the fetched path if it was relative
-                        let src = s.src;
-                        // Avoid re-adding the same external script if already present
+                        const src = s.getAttribute('src');
                         if (!document.querySelector(`script[src="${src}"]`)) {
                             const newScript = document.createElement('script');
                             newScript.src = src;
@@ -63,7 +105,6 @@ function loadComponent(id, file) {
                             document.body.appendChild(newScript);
                         }
                     } else {
-                        // Inline script: execute immediately
                         const inline = document.createElement('script');
                         inline.textContent = s.textContent;
                         document.body.appendChild(inline);

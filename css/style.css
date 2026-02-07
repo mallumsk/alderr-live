@@ -22,6 +22,15 @@ p {font-family: poppins, sans-serif;}
       color: #15404E;
     }
 
+ ::-moz-selection { /* Code for Firefox */
+  color:#FFFFFF;
+  background: #7896AE;
+}
+
+::selection {
+  color: #FFFFFF;
+  background: #7896AE;}
+
 /* === Color Palette === */
 
 /* === Color Palette === */
@@ -147,4 +156,40 @@ p {font-family: poppins, sans-serif;}
       }
       .faq-item.active .faq-content {
         grid-template-rows: 1fr;
+      }
+
+      /* Calculator */
+      .bg-maroon {
+        background-color: #8a0e4f;
+      }
+      .text-maroon {
+        color: #8a0e4f;
+      }
+      .border-maroon {
+        border-color: #8a0e4f;
+      }
+
+      /* Dark Teal for the new footer */
+      .bg-teal-dark {
+        background-color: #133d44;
+      }
+
+      .input-underline {
+        border: none;
+        border-bottom: 1px solid #cbd5e1;
+        background: transparent;
+        text-align: right;
+        width: 120px;
+        padding: 4px;
+      }
+      .input-underline:focus {
+        outline: none;
+        border-bottom-color: #8a0e4f;
+      }
+
+      .row-bg {
+        background-color: #f9f8f6;
+      }
+      .hidden {
+        display: none;
       }

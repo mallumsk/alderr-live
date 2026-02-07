@@ -3,162 +3,491 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cost Comparison Tool</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap");
       body {
-        font-family: "Open Sans", sans-serif;
-      }
-      h1,
-      h2,
-      button {
-        font-family: "Montserrat", sans-serif;
+        font-family: "Inter", sans-serif;
+        background-color: #ffffff;
+        color: #1a1a1a;
       }
 
-      /* Custom transition for the accordion height */
-      .faq-content {
-        display: grid;
-        grid-template-rows: 0fr;
-        transition: grid-template-rows 0.3s ease-out;
+      .bg-maroon {
+        background-color: #8a0e4f;
       }
-      .faq-item.active .faq-content {
-        grid-template-rows: 1fr;
+      .text-maroon {
+        color: #8a0e4f;
+      }
+      .border-maroon {
+        border-color: #8a0e4f;
+      }
+
+      /* Dark Teal for the new footer */
+      .bg-teal-dark {
+        background-color: #133d44;
+      }
+
+      .input-underline {
+        border: none;
+        border-bottom: 1px solid #cbd5e1;
+        background: transparent;
+        text-align: right;
+        width: 120px;
+        padding: 4px;
+      }
+      .input-underline:focus {
+        outline: none;
+        border-bottom-color: #8a0e4f;
+      }
+
+      .row-bg {
+        background-color: #f9f8f6;
+      }
+      .hidden {
+        display: none;
       }
     </style>
   </head>
-  <body class="bg-white antialiased">
-    <div class="max-w-3xl mx-auto px-6 py-16 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold text-[#1E3A45] mb-12">
-        Frequently Asked Questions
-      </h2>
-
-      <div class="space-y-0 border-t border-gray-200">
-        <div class="faq-item border-b border-gray-200 group">
-          <button
-            class="flex w-full items-center justify-between py-7 text-left outline-none"
-          >
-            <span
-              class="text-lg font-bold text-gray-800 group-hover:text-[#8E2464] transition-colors"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit?
-            </span>
-            <svg
-              class="w-4 h-4 text-gray-800 transform transition-transform duration-300 group-[.active]:-rotate-180"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2.5"
-                d="M19 9l-7 7-7-7"
-              ></path>
-            </svg>
-          </button>
-          <div class="faq-content overflow-hidden">
-            <div class="min-h-[0px]">
-              <p class="pb-6 text-gray-600 leading-relaxed text-left">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation.
-              </p>
+  <body class="p-6 md:p-12 lg:p-20">
+    <div class="max-w-4xl mx-auto">
+      <div id="input-screen">
+        <div class="space-y-10">
+          <section>
+            <h2 class="text-2xl font-bold mb-6">About You</h2>
+            <div class="space-y-1">
+              <div
+                class="flex justify-between items-center p-4 row-bg rounded-xl"
+              >
+                <span class="font-medium text-gray-700">Number of Tax IDs</span>
+                <input
+                  type="number"
+                  id="taxIds"
+                  value="1"
+                  class="input-underline"
+                />
+              </div>
+              <div class="flex justify-between items-center p-4 rounded-xl">
+                <span class="font-medium text-gray-700"
+                  >Number of Providers</span
+                >
+                <input
+                  type="number"
+                  id="providers"
+                  value="2"
+                  class="input-underline"
+                />
+              </div>
+              <div
+                class="flex justify-between items-center p-4 row-bg rounded-xl"
+              >
+                <span class="font-medium text-gray-700"
+                  >Average Net Collections (Monthly)</span
+                >
+                <div class="flex items-center">
+                  <span class="mr-1 text-gray-500">$</span>
+                  <input
+                    type="number"
+                    id="collections"
+                    value="120000"
+                    class="input-underline"
+                  />
+                </div>
+              </div>
+              <div class="flex justify-between items-center p-4 rounded-xl">
+                <span class="font-medium text-gray-700"
+                  >Average number of patient visits / month</span
+                >
+                <input
+                  type="number"
+                  id="visits"
+                  value="700"
+                  class="input-underline"
+                />
+              </div>
             </div>
-          </div>
-        </div>
+          </section>
 
-        <div class="faq-item border-b border-gray-200 group">
-          <button
-            class="flex w-full items-center justify-between py-7 text-left outline-none"
-          >
-            <span
-              class="text-lg font-bold text-gray-800 group-hover:text-[#8E2464] transition-colors"
+          <section>
+            <h2 class="text-2xl font-bold mb-6">Your Current System</h2>
+            <div
+              class="flex justify-between items-center p-4 row-bg rounded-xl"
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit?
-            </span>
-            <svg
-              class="w-4 h-4 text-gray-800 transform transition-transform duration-300 group-[.active]:-rotate-180"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2.5"
-                d="M19 9l-7 7-7-7"
-              ></path>
-            </svg>
-          </button>
-          <div class="faq-content overflow-hidden">
-            <div class="min-h-[0px]">
-              <p class="pb-6 text-gray-600 leading-relaxed text-left">
-                Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse
-                sodales pellentesque elementum. Maecenas vel interdum augue.
-              </p>
+              <span class="font-medium text-gray-700"
+                >Are you currently using another billing company?</span
+              >
+              <div
+                class="flex border border-maroon rounded-full p-1 bg-white overflow-hidden"
+              >
+                <button
+                  onclick="setToggle('billing', true)"
+                  id="btn-bill-yes"
+                  class="px-6 py-1 text-sm font-bold rounded-full bg-maroon text-white transition-colors"
+                >
+                  Yes
+                </button>
+                <button
+                  onclick="setToggle('billing', false)"
+                  id="btn-bill-no"
+                  class="px-6 py-1 text-sm font-bold rounded-full text-maroon transition-colors"
+                >
+                  No
+                </button>
+              </div>
             </div>
-          </div>
-        </div>
+          </section>
 
-        <div class="faq-item border-b border-gray-200 group">
-          <button
-            class="flex w-full items-center justify-between py-7 text-left outline-none"
-          >
-            <span
-              class="text-lg font-bold text-gray-800 group-hover:text-[#8E2464] transition-colors"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit?
-            </span>
-            <svg
-              class="w-4 h-4 text-gray-800 transform transition-transform duration-300 group-[.active]:-rotate-180"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2.5"
-                d="M19 9l-7 7-7-7"
-              ></path>
-            </svg>
-          </button>
-          <div class="faq-content overflow-hidden">
-            <div class="min-h-[0px]">
-              <p class="pb-6 text-gray-600 leading-relaxed text-left">
-                Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.
-                Proin eget tortor risus. Vestibulum ante ipsum primis in
-                faucibus orci luctus.
-              </p>
+          <section>
+            <h2 class="text-2xl font-bold mb-6">
+              What are you looking for from us?
+            </h2>
+            <div class="space-y-1">
+              <div
+                class="flex justify-between items-center p-4 row-bg rounded-xl"
+              >
+                <span class="font-medium text-gray-700">PM</span>
+                <input
+                  type="checkbox"
+                  id="pmCheck"
+                  class="w-5 h-5 accent-maroon border-maroon rounded cursor-pointer"
+                />
+              </div>
+              <div class="flex justify-between items-center p-4 rounded-xl">
+                <span class="font-medium text-gray-700">EMR</span>
+                <input
+                  type="checkbox"
+                  id="emrCheck"
+                  checked
+                  class="w-5 h-5 accent-maroon border-maroon rounded cursor-pointer"
+                />
+              </div>
+              <div
+                class="flex justify-between items-center p-4 row-bg rounded-xl"
+              >
+                <span class="font-medium text-gray-700"
+                  >Who does the work? (Charge Entry, Payments, AR)</span
+                >
+                <div
+                  class="flex border border-maroon rounded-full p-1 bg-white overflow-hidden"
+                >
+                  <button
+                    onclick="setToggle('work', false)"
+                    id="btn-work-you"
+                    class="px-6 py-1 text-sm font-bold rounded-full text-maroon transition-colors"
+                  >
+                    You
+                  </button>
+                  <button
+                    onclick="setToggle('work', true)"
+                    id="btn-work-us"
+                    class="px-6 py-1 text-sm font-bold rounded-full bg-maroon text-white transition-colors"
+                  >
+                    Us
+                  </button>
+                </div>
+              </div>
+              <div class="flex justify-between items-center p-4 rounded-xl">
+                <span class="font-medium text-gray-700"
+                  >Would you want a 3rd party billing company to provide
+                  oversight</span
+                >
+                <input
+                  type="checkbox"
+                  id="oversightCheck"
+                  class="w-5 h-5 accent-maroon border-maroon rounded cursor-pointer"
+                />
+              </div>
             </div>
-          </div>
+          </section>
+
+          <button
+            onclick="calculateAndShow()"
+            class="w-full py-5 border-2 border-maroon text-maroon font-bold rounded-full hover:bg-maroon hover:text-white transition-all text-lg"
+          >
+            Calculate Now
+          </button>
         </div>
       </div>
 
-      <button
-        class="mt-12 px-10 py-3 border-2 border-[#8E2464] text-[#8E2464] text-lg font-bold rounded-full hover:bg-[#8E2464] hover:text-white transition-all duration-300"
-      >
-        Load More
-      </button>
+      <div id="result-screen" class="hidden">
+        <button
+          onclick="goBack()"
+          class="mb-8 text-sm font-bold text-maroon flex items-center hover:underline"
+        >
+          ← BACK TO INPUTS
+        </button>
+
+        <h1 class="text-4xl font-bold mb-12">Cost Comparison</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+          <div class="space-y-4">
+            <h3
+              class="text-sm font-bold text-gray-400 tracking-widest uppercase"
+            >
+              Your Current System
+            </h3>
+            <div class="flex justify-between p-4 row-bg rounded-xl font-medium">
+              <span>Software Fees</span><span id="res-currSoft">$ 0</span>
+            </div>
+            <div class="flex justify-between p-4 font-medium">
+              <span>% of Collections (Billing Tasks)</span
+              ><span id="res-currBill">$ 0</span>
+            </div>
+            <div class="flex justify-between p-4 row-bg rounded-xl font-medium">
+              <span>Direct Costs / Payroll</span
+              ><span id="res-currPay">$ 0</span>
+            </div>
+
+            <div
+              class="flex justify-between p-5 bg-[#F2EDE7] rounded-xl font-bold text-xl mt-6"
+            >
+              <span>Total</span><span id="res-currTotal">$ 0</span>
+            </div>
+            <div class="px-2 space-y-2 mt-4 text-sm font-medium text-gray-500">
+              <div class="flex justify-between">
+                <span>Expressed as Fully Loaded %</span
+                ><span id="res-currPerc">0%</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Expressed as Fully Loaded $/Claim</span
+                ><span id="res-currClaim">$ 0.00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h3
+              class="text-sm font-bold text-gray-400 tracking-widest uppercase"
+            >
+              With activPractice
+            </h3>
+            <div class="flex justify-between p-4 row-bg rounded-xl font-medium">
+              <span>EMR ($400/Prov)</span><span id="res-actEMR">$ 0</span>
+            </div>
+            <div class="flex justify-between p-4 font-medium">
+              <span>PM</span><span id="res-actPM">$ 0</span>
+            </div>
+            <div class="flex justify-between p-4 row-bg rounded-xl font-medium">
+              <span>Clearing House</span><span id="res-actClear">$ 190</span>
+            </div>
+            <div class="flex justify-between p-4 font-medium">
+              <span>Billing Tasks ($3.50/Visit)</span
+              ><span id="res-actBill">$ 0</span>
+            </div>
+            <div
+              class="flex justify-between p-4 row-bg rounded-xl font-medium text-sm"
+            >
+              <span>Direct Costs / Payroll (Exceptions)</span
+              ><span id="res-actPay">$ 0</span>
+            </div>
+            <div class="flex justify-between p-4 font-medium">
+              <span>3rd Party Billing Oversight</span
+              ><span id="res-actOver">$ 0</span>
+            </div>
+
+            <div
+              class="flex justify-between p-5 bg-[#F2EDE7] rounded-xl font-bold text-xl mt-6"
+            >
+              <span>Total</span><span id="res-actTotal">$ 0</span>
+            </div>
+            <div class="px-2 space-y-2 mt-4 text-sm font-medium text-gray-500">
+              <div class="flex justify-between">
+                <span>Expressed as Fully Loaded %</span
+                ><span id="res-actPerc">0%</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Expressed as Fully Loaded $/Claim</span
+                ><span id="res-actClaim">$ 0.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="mt-20 p-8 md:p-12 bg-maroon rounded-[40px] shadow-xl text-white"
+        >
+          <h2 class="text-2xl font-bold mb-8">Savings Summary</h2>
+          <div class="space-y-4">
+            <div
+              class="flex justify-between items-center p-4 bg-white/10 rounded-2xl font-medium"
+            >
+              <span>Savings</span><span id="res-savAmt">$ 0</span>
+            </div>
+            <div
+              class="flex justify-between items-center p-4 bg-white/10 rounded-2xl font-medium"
+            >
+              <span>Savings/Claim (Fully Loaded)</span
+              ><span id="res-savClaim">$ 0.00</span>
+            </div>
+            <div
+              class="flex justify-between items-center p-4 bg-white/10 rounded-2xl font-medium"
+            >
+              <span>Savings % of Collections (Fully Loaded)</span
+              ><span id="res-savPercColl">0.0%</span>
+            </div>
+            <div
+              class="flex justify-between items-center p-6 bg-white rounded-2xl mt-4"
+            >
+              <span class="text-maroon font-bold text-xl">Total Savings</span>
+              <span
+                id="res-savTotalPerc"
+                class="text-maroon font-black text-3xl"
+                >-25%</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="mt-12 p-8 md:p-14 bg-teal-dark rounded-[40px] text-white text-center"
+        >
+          <h2 class="text-2xl md:text-3xl font-bold mb-10">
+            Send these results directly to your inbox.
+          </h2>
+          <div
+            class="flex flex-col md:flex-row gap-4 items-center justify-center"
+          >
+            <input
+              type="text"
+              placeholder="First Name"
+              class="w-full md:flex-1 p-4 rounded-full text-gray-800 focus:outline-none"
+            />
+            <input
+              type="text"
+              placeholder="Last Name"
+              class="w-full md:flex-1 p-4 rounded-full text-gray-800 focus:outline-none"
+            />
+            <input
+              type="email"
+              placeholder="Email Address"
+              class="w-full md:flex-1 p-4 rounded-full text-gray-800 focus:outline-none"
+            />
+            <button
+              class="w-full md:w-auto px-10 py-4 bg-maroon text-white font-bold rounded-full hover:opacity-90 transition-all"
+            >
+              Send Now
+            </button>
+          </div>
+        </div>
+
+        <button
+          onclick="goBack()"
+          class="w-full mt-10 py-4 text-gray-400 font-bold hover:text-maroon transition-colors uppercase tracking-widest text-sm"
+        >
+          ↺ Start New Calculation
+        </button>
+      </div>
     </div>
 
     <script>
-      document.querySelectorAll(".faq-item button").forEach((button) => {
-        button.addEventListener("click", () => {
-          const parent = button.parentElement;
+      let isBillingYes = true;
+      let isWorkUs = true;
 
-          // Close other open items
-          document.querySelectorAll(".faq-item").forEach((item) => {
-            if (item !== parent) item.classList.remove("active");
-          });
+      function setToggle(group, val) {
+        if (group === "billing") {
+          isBillingYes = val;
+          document.getElementById("btn-bill-yes").className = val
+            ? "px-6 py-1 text-sm font-bold rounded-full bg-maroon text-white"
+            : "px-6 py-1 text-sm font-bold rounded-full text-maroon";
+          document.getElementById("btn-bill-no").className = !val
+            ? "px-6 py-1 text-sm font-bold rounded-full bg-maroon text-white"
+            : "px-6 py-1 text-sm font-bold rounded-full text-maroon";
+        } else {
+          isWorkUs = val;
+          document.getElementById("btn-work-us").className = val
+            ? "px-6 py-1 text-sm font-bold rounded-full bg-maroon text-white"
+            : "px-6 py-1 text-sm font-bold rounded-full text-maroon";
+          document.getElementById("btn-work-you").className = !val
+            ? "px-6 py-1 text-sm font-bold rounded-full bg-maroon text-white"
+            : "px-6 py-1 text-sm font-bold rounded-full text-maroon";
+        }
+      }
 
-          // Toggle the clicked item
-          parent.classList.toggle("active");
-        });
-      });
+      function calculateAndShow() {
+        const providers =
+          parseFloat(document.getElementById("providers").value) || 0;
+        const collections =
+          parseFloat(document.getElementById("collections").value) || 0;
+        const visits = parseFloat(document.getElementById("visits").value) || 1;
+        const wantEMR = document.getElementById("emrCheck").checked;
+        const wantOversight = document.getElementById("oversightCheck").checked;
+
+        // Spreadsheet Constants
+        const currSoftBase = 1198;
+        const currBillRate = 0.029;
+        const currPayrollBase = 200;
+        const actEMRRate = 400;
+        const actClearFee = 190;
+        const actBillRate = 3.5;
+        const actOverRate = 0.01;
+
+        // Calculate CURRENT
+        const currSoft = currSoftBase;
+        const currBill = isBillingYes ? collections * currBillRate : 0;
+        const currPay = currPayrollBase;
+        const currTotal = currSoft + currBill + currPay;
+
+        // Calculate activPractice
+        const actEMR = wantEMR ? providers * actEMRRate : 0;
+        const actClear = actClearFee;
+        const actBill = isWorkUs ? visits * actBillRate : 0;
+        const actPay = 200; // Carry over fixed payroll exception
+        const actOver = wantOversight ? collections * actOverRate : 0;
+        const actTotal = actEMR + actClear + actBill + actPay + actOver;
+
+        // Calculate Savings
+        const savings = currTotal - actTotal;
+        const totalSavingsPerc = (savings / (currTotal || 1)) * 100;
+
+        // UI Formatting
+        const f = (n) =>
+          "$ " +
+          Math.abs(n).toLocaleString("en-US", { minimumFractionDigits: 0 });
+        const f2 = (n) =>
+          "$ " +
+          Math.abs(n).toLocaleString("en-US", { minimumFractionDigits: 2 });
+
+        // Set UI Values
+        document.getElementById("res-currSoft").innerText = f(currSoft);
+        document.getElementById("res-currBill").innerText = f(currBill);
+        document.getElementById("res-currPay").innerText = f(currPay);
+        document.getElementById("res-currTotal").innerText = f(currTotal);
+        document.getElementById("res-currPerc").innerText =
+          ((currTotal / collections) * 100).toFixed(1) + "%";
+        document.getElementById("res-currClaim").innerText = f2(
+          currTotal / visits
+        );
+
+        document.getElementById("res-actEMR").innerText = f(actEMR);
+        document.getElementById("res-actClear").innerText = f(actClear);
+        document.getElementById("res-actBill").innerText = f(actBill);
+        document.getElementById("res-actPay").innerText = f(actPay);
+        document.getElementById("res-actTotal").innerText = f(actTotal);
+        document.getElementById("res-actPerc").innerText =
+          ((actTotal / collections) * 100).toFixed(1) + "%";
+        document.getElementById("res-actClaim").innerText = f2(
+          actTotal / visits
+        );
+
+        document.getElementById("res-savAmt").innerText = f(savings);
+        document.getElementById("res-savClaim").innerText = f2(
+          savings / visits
+        );
+        document.getElementById("res-savPercColl").innerText =
+          ((savings / collections) * 100).toFixed(1) + "%";
+        document.getElementById("res-savTotalPerc").innerText =
+          Math.round(totalSavingsPerc) + "%";
+
+        document.getElementById("input-screen").classList.add("hidden");
+        document.getElementById("result-screen").classList.remove("hidden");
+        window.scrollTo(0, 0);
+      }
+
+      function goBack() {
+        document.getElementById("result-screen").classList.add("hidden");
+        document.getElementById("input-screen").classList.remove("hidden");
+        window.scrollTo(0, 0);
+      }
     </script>
   </body>
 </html>

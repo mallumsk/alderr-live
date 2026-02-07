@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cost Comparison Tool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #ffffff;
+        color: #1a1a1a;
+      }
+
+      .bg-maroon {
+        background-color: #8a0e4f;
+      }
+      .text-maroon {
+        color: #8a0e4f;
+      }
+      .border-maroon {
+        border-color: #8a0e4f;
+      }
+
+      .input-underline {
+        border: none;
+        border-bottom: 1px solid #cbd5e1;
+        background: transparent;
+        text-align: right;
+        width: 120px;
+        padding: 4px;
+      }
+      .input-underline:focus {
+        outline: none;
+        border-bottom-color: #8a0e4f;
+      }
+
+      .row-bg {
+        background-color: #f9f8f6;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="p-6 md:p-12 lg:p-20">
+    <div class="max-w-4xl mx-auto">
+      <div id="input-screen">
+        <div class="space-y-10">
+          <section>
+            <h2 class="text-2xl font-bold mb-6">About You</h2>
+            <div class="space-y-1">
+              <div
+                class="flex justify-between items-center p-4 row-bg rounded-xl"
+              >
+                <span class="font-medium text-gray-700">Number of Tax IDs</span>
+                <input
+                  type="number"
+                  id="taxIds"
+                  value="1"
+                  class="input-underline"
+                />
+              </div>
+              <div class="flex justify-between items-center p-4 rounded-xl">
+                <span class="font-medium text-gray-700"
+                  >Number of Providers</span
+                >
+                <input
+                  type="number"
+                  id="providers"
+                  value="2"
+                  class="input-underline"
+                />
+              </div>
+              <div
+                class="flex justify-between items-center p-4 row-bg rounded-xl"
+              >
+                <span class="font-medium text-gray-700"
+                  >Average Net Collections (Monthly)</span
+                >
+                <div class="flex items-center">
+                  <span class="mr-1 text-gray-500">$</span>
+                  <input
+                    type="number"
+                    id="collections"
+                    value="120000"
+                    class="input-underline"
+                  />
+                </div>
+              </div>
+              <div class="flex justify-between items-center p-4 rounded-xl">
+                <span class="font-medium text-gray-700"
+                  >Average number of patient visits / month</span
+                >
+                <input
+                  type="number"
+                  id="visits"
+                  value="700"
+                  class="input-underline"
+                />
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-6">Your Current System</h2>
+            <div
+              class="flex justify-between items-center p-4 row-bg rounded-xl"
+            >
+              <span class="font-medium text-gray-700"
+                >Are you currently using another billing company?</span
+              >
+              <div
+                class="flex border border-maroon rounded-full p-1 bg-white overflow-hidden"
+              >
+                <button
+                  onclick="setToggle('billing', true)"
+                  id="btn-bill-yes"
+                  class="px-6 py-1 text-sm font-bold rounded-full bg-maroon text-white transition-colors"
+                >
+                  Yes
+                </button>
+                <button
+                  onclick="setToggle('billing', false)"
+                  id="btn-bill-no"
+                  class="px-6 py-1 text-sm font-bold rounded-full text-maroon transition-colors"
+                >
+                  No
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-bold mb-6">
+              What are you looking for from us?
+            </h2>
+            <div class="space-y-1">
+              <div
+                class="flex justify-between items-center p-4 row-bg rounded-xl"
+              >
+                <span class="font-medium text-gray-700">PM</span>
+                <input
+                  type="checkbox"
+                  id="pmCheck"
+                  class="w-5 h-5 accent-maroon border-maroon rounded cursor-pointer"
+                />
+              </div>
+              <div class="flex justify-between items-center p-4 rounded-xl">
+                <span class="font-medium text-gray-700">EMR</span>
+                <input
+                  type="checkbox"
+                  id="emrCheck"
+                  checked
+                  class="w-5 h-5 accent-maroon border-maroon rounded cursor-pointer"
+                />
+              </div>
+              <div
+                class="flex justify-between items-center p-4 row-bg rounded-xl"
+              >
+                <span class="font-medium text-gray-700"
+                  >Who does the work? (Charge Entry, Payments, AR)</span
+                >
+                <div
+                  class="flex border border-maroon rounded-full p-1 bg-white overflow-hidden"
+                >
+                  <button
+                    onclick="setToggle('work', false)"
+                    id="btn-work-you"
+                    class="px-6 py-1 text-sm font-bold rounded-full text-maroon transition-colors"
+                  >
+                    You
+                  </button>
+                  <button
+                    onclick="setToggle('work', true)"
+                    id="btn-work-us"
+                    class="px-6 py-1 text-sm font-bold rounded-full bg-maroon text-white transition-colors"
+                  >
+                    Us
+                  </button>
+                </div>
+              </div>
+              <div class="flex justify-between items-center p-4 rounded-xl">
+                <span class="font-medium text-gray-700"
+                  >Would you want a 3rd party billing company to provide
+                  oversight</span
+                >
+                <input
+                  type="checkbox"
+                  id="oversightCheck"
+                  class="w-5 h-5 accent-maroon border-maroon rounded cursor-pointer"
+                />
+              </div>
+            </div>
+          </section>
+
+          <button
+            onclick="calculateAndShow()"
+            class="w-full py-5 border-2 border-maroon text-maroon font-bold rounded-full hover:bg-maroon hover:text-white transition-all text-lg"
+          >
+            Calculate Now
+          </button>
+        </div>
+      </div>
+
+      <div id="result-screen" class="hidden">
+        <button
+          onclick="goBack()"
+          class="mb-8 text-sm font-bold text-maroon flex items-center hover:underline"
+        >
+          ← BACK TO INPUTS
+        </button>
+
+        <h1 class="text-4xl font-bold mb-12">Cost Comparison</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+          <div class="space-y-4">
+            <h3 class="text-xl font-bold mb-6">Your Current System</h3>
+            <div class="flex justify-between p-4 row-bg rounded-xl font-medium">
+              <span>Software Fees</span><span id="res-currSoft">$ 0</span>
+            </div>
+            <div class="flex justify-between p-4 font-medium">
+              <span>% of Collections (Billing Tasks)</span
+              ><span id="res-currBill">$ 0</span>
+            </div>
+            <div class="flex justify-between p-4 row-bg rounded-xl font-medium">
+              <span>Direct Costs / Payroll</span
+              ><span id="res-currPay">$ 0</span>
+            </div>
+
+            <div
+              class="flex justify-between p-5 bg-[#F2EDE7] rounded-xl font-bold text-xl mt-6"
+            >
+              <span>Total</span><span id="res-currTotal">$ 0</span>
+            </div>
+            <div class="px-2 space-y-2 mt-4 text-sm font-medium text-gray-500">
+              <div class="flex justify-between">
+                <span>Expressed as Fully Loaded %</span
+                ><span id="res-currPerc">0%</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Expressed as Fully Loaded $/Claim</span
+                ><span id="res-currClaim">$ 0.00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-xl font-bold mb-6">With activPractice</h3>
+            <div class="flex justify-between p-4 row-bg rounded-xl font-medium">
+              <span>EMR</span><span id="res-actEMR">$ 0</span>
+            </div>
+            <div class="flex justify-between p-4 font-medium">
+              <span>PM</span><span id="res-actPM">$ 0</span>
+            </div>
+            <div class="flex justify-between p-4 row-bg rounded-xl font-medium">
+              <span>Clearing House</span><span id="res-actClear">$ 190</span>
+            </div>
+            <div class="flex justify-between p-4 font-medium">
+              <span>Billing Tasks</span><span id="res-actBill">$ 0</span>
+            </div>
+            <div
+              class="flex justify-between p-4 row-bg rounded-xl font-medium text-sm"
+            >
+              <span>Direct Costs / Payroll (Exceptions)</span
+              ><span id="res-actPay">$ 0</span>
+            </div>
+            <div class="flex justify-between p-4 font-medium">
+              <span>3rd Party Billing Oversight</span
+              ><span id="res-actOver">$ 0</span>
+            </div>
+
+            <div
+              class="flex justify-between p-5 bg-[#F2EDE7] rounded-xl font-bold text-xl mt-6"
+            >
+              <span>Total</span><span id="res-actTotal">$ 0</span>
+            </div>
+            <div class="px-2 space-y-2 mt-4 text-sm font-medium text-gray-500">
+              <div class="flex justify-between">
+                <span>Expressed as Fully Loaded %</span
+                ><span id="res-actPerc">0%</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Expressed as Fully Loaded $/Claim</span
+                ><span id="res-actClaim">$ 0.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="mt-20 p-8 md:p-12 bg-maroon rounded-[40px] shadow-xl text-white"
+        >
+          <h2 class="text-2xl font-bold mb-8">Savings Summary</h2>
+          <div class="space-y-4">
+            <div
+              class="flex justify-between items-center p-4 bg-white/10 rounded-2xl font-medium"
+            >
+              <span>Savings</span><span id="res-savAmt">$ 0</span>
+            </div>
+            <div
+              class="flex justify-between items-center p-4 bg-white/10 rounded-2xl font-medium"
+            >
+              <span>Savings/Claim (Fully Loaded)</span
+              ><span id="res-savClaim">$ 0.00</span>
+            </div>
+            <div
+              class="flex justify-between items-center p-4 bg-white/10 rounded-2xl font-medium"
+            >
+              <span>Savings % of Collections (Fully Loaded)</span
+              ><span id="res-savPercColl">0.0%</span>
+            </div>
+            <div
+              class="flex justify-between items-center p-6 bg-white rounded-2xl mt-4"
+            >
+              <span class="text-maroon font-bold text-xl">Total Savings</span>
+              <span
+                id="res-savTotalPerc"
+                class="text-maroon font-black text-2xl"
+                >0%</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let isBillingYes = true;
+      let isWorkUs = true;
+
+      function setToggle(group, val) {
+        if (group === "billing") {
+          isBillingYes = val;
+          document.getElementById("btn-bill-yes").className = val
+            ? "px-6 py-1 text-sm font-bold rounded-full bg-maroon text-white"
+            : "px-6 py-1 text-sm font-bold rounded-full text-maroon";
+          document.getElementById("btn-bill-no").className = !val
+            ? "px-6 py-1 text-sm font-bold rounded-full bg-maroon text-white"
+            : "px-6 py-1 text-sm font-bold rounded-full text-maroon";
+        } else {
+          isWorkUs = val;
+          document.getElementById("btn-work-us").className = val
+            ? "px-6 py-1 text-sm font-bold rounded-full bg-maroon text-white"
+            : "px-6 py-1 text-sm font-bold rounded-full text-maroon";
+          document.getElementById("btn-work-you").className = !val
+            ? "px-6 py-1 text-sm font-bold rounded-full bg-maroon text-white"
+            : "px-6 py-1 text-sm font-bold rounded-full text-maroon";
+        }
+      }
+
+      function calculateAndShow() {
+        // Core Inputs
+        const providers =
+          parseFloat(document.getElementById("providers").value) || 0;
+        const collections =
+          parseFloat(document.getElementById("collections").value) || 0;
+        const visits = parseFloat(document.getElementById("visits").value) || 1;
+        const wantEMR = document.getElementById("emrCheck").checked;
+        const wantPM = document.getElementById("pmCheck").checked;
+        const wantOversight = document.getElementById("oversightCheck").checked;
+
+        // Spreadsheet Logic Constants
+        const currSoftBase = 1198;
+        const currBillRate = 0.029;
+        const currPayrollBase = 200;
+        const actEMRRate = 400;
+        const actClearFee = 190;
+        const actBillRate = 3.5;
+        const actOverRate = 0.01;
+
+        // Calculate CURRENT System
+        const currSoft = currSoftBase;
+        const currBill = isBillingYes ? collections * currBillRate : 0;
+        const currPay = currPayrollBase;
+        const currTotal = currSoft + currBill + currPay;
+
+        // Calculate activPractice System
+        const actEMR = wantEMR ? providers * actEMRRate : 0;
+        const actPM = 0; // Default zero as per screenshot
+        const actClear = actClearFee;
+        const actBill = isWorkUs ? visits * actBillRate : 0;
+        const actPay = currPayrollBase; // Carry over base direct costs
+        const actOver = wantOversight ? collections * actOverRate : 0;
+        const actTotal = actEMR + actPM + actClear + actBill + actPay + actOver;
+
+        // Calculate Savings Summary
+        const savings = currTotal - actTotal;
+        const savingsClaim = savings / visits;
+        const savingsPercColl = (savings / (collections || 1)) * 100;
+        const totalSavingsPerc = (savings / (currTotal || 1)) * 100;
+
+        // UI Formatting
+        const f = (n) =>
+          "$ " +
+          Math.abs(n).toLocaleString("en-US", {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+          });
+        const f2 = (n) =>
+          "$ " +
+          Math.abs(n).toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+        const p = (n) => n.toFixed(1) + "%";
+        const wrap = (val, num) => (num < 0 ? `(${val})` : val);
+
+        // Set UI - Current
+        document.getElementById("res-currSoft").innerText = f(currSoft);
+        document.getElementById("res-currBill").innerText = f(currBill);
+        document.getElementById("res-currPay").innerText = f(currPay);
+        document.getElementById("res-currTotal").innerText = f(currTotal);
+        document.getElementById("res-currPerc").innerText = p(
+          (currTotal / (collections || 1)) * 100
+        );
+        document.getElementById("res-currClaim").innerText = f2(
+          currTotal / visits
+        );
+
+        // Set UI - activPractice
+        document.getElementById("res-actEMR").innerText = f(actEMR);
+        document.getElementById("res-actPM").innerText = f(actPM);
+        document.getElementById("res-actClear").innerText = f(actClear);
+        document.getElementById("res-actBill").innerText = f(actBill);
+        document.getElementById("res-actPay").innerText = f(actPay);
+        document.getElementById("res-actOver").innerText = f(actOver);
+        document.getElementById("res-actTotal").innerText = f(actTotal);
+        document.getElementById("res-actPerc").innerText = p(
+          (actTotal / (collections || 1)) * 100
+        );
+        document.getElementById("res-actClaim").innerText = f2(
+          actTotal / visits
+        );
+
+        // Set UI - Savings Card
+        document.getElementById("res-savAmt").innerText = wrap(
+          f(savings),
+          savings
+        );
+        document.getElementById("res-savClaim").innerText = wrap(
+          f2(savingsClaim),
+          savingsClaim
+        );
+        document.getElementById("res-savPercColl").innerText =
+          p(savingsPercColl);
+        document.getElementById("res-savTotalPerc").innerText =
+          Math.round(totalSavingsPerc) + "%";
+
+        // Transition Screens
+        document.getElementById("input-screen").classList.add("hidden");
+        document.getElementById("result-screen").classList.remove("hidden");
+        window.scrollTo(0, 0);
+      }
+
+      function goBack() {
+        document.getElementById("result-screen").classList.add("hidden");
+        document.getElementById("input-screen").classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>
